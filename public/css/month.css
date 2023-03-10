@@ -1,0 +1,81 @@
+.block{
+    width:100%;
+    height: 0.7rem;
+    background-color: #fff;
+}
+.mint-cell {
+    width: 30%;
+    background-color: #fff;
+    box-sizing: border-box;
+    color: #26a2ff;
+    min-height: 0.7rem;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+}
+.mintui-field-error{
+    display: none;
+}
+.mint-cell-wrapper{
+     background-image: none;
+}
+.fa-calendar{
+    float: left;
+    font-size: 0.35rem;
+    line-height: 0.7rem;
+    margin-left: 35%;
+    color: #26a2ff;
+    margin-right: 0.2rem;
+}
+.time-button-view{
+    text-align: right;
+    padding: 10px;
+    font-size: 14px;
+    height: 40px;
+    color:#5cadff;
+
+}
+.time-button-view-button{
+    float:left;
+}
+.input_group{
+    height: 0.7rem;
+    width: 35%;
+    background-color: rgba(255,255,255,0);
+    border: none;
+    position: absolute;
+    z-index: 99;
+    margin-top: -0.7rem;
+    margin-left: 35%;
+}
+
+.fa-plus-square-o{
+    color: #26a2ff;
+    float: right;
+    font-size: 0.4rem;
+    line-height: 0.7rem;
+    margin-top: -0.7rem;
+    margin-right: 0.15rem;
+}
+.calendar_header{
+    width: 100%;
+    height: 0.7rem;
+    margin-bottom: 1px;
+}
+.mint-popup-bottom {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+}
+.mint-field-core{
+    color:#26a2ff;
+    font-size: 0.32rem;
+    margin-top: 0.02rem;
+    background: none;
+}

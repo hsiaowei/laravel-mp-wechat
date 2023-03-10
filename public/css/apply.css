@@ -1,0 +1,219 @@
+.mint-cell {
+    color: #333;
+    min-height: 0.65rem;
+}
+
+.apply_group{
+    width:100%;
+    margin-top: 1px;
+}
+.apply_single{
+    width:100%;
+    margin-top: 0.25rem;
+}
+.mint-cell-wrapper{
+    font-size: 0.25rem;
+    padding: 0 0 0 0.2rem;
+}
+.mint-cell-wrapper, .mint-cell:last-child{
+    background-image: linear-gradient(180deg, #fff, #fff 50%, transparent 50%);
+}
+.input_group{
+    width: 70%;
+    height: 0.6rem;
+    border: none;
+    margin-left: 25%;
+    background-color: rgba(255,255,255,0);
+    margin-top: -0.65rem;
+    z-index: 999;
+    position:absolute;
+}
+
+.little-btn{
+    font-size: 0.22rem;
+    padding: 0.05rem 0.1rem;
+    height: 0.35rem;
+    margin-left: 0.1rem;
+    vertical-align: center;
+    background: #D3EDFB;
+    color:#20A0FF;
+    border: 0px solid #000;
+    float: right;
+    border-radius: 0.02rem;
+    display: inline-block;
+    margin-top: 0.12rem;
+}
+.div_hide,.btn_hide{
+    display:none;
+}
+#btn_group{
+    height:0.6rem;
+    line-height:0.6rem;
+}
+.btn-group{
+    /*background-color: red;*/
+    /*height: 0.65rem;*/
+    /*line-height: 0.65rem;*/
+    margin-top: -0.65rem;
+    z-index: 999;
+    position:absolute;
+    width: 40%;
+    margin-left: 57%;
+}
+.mint-popup-bottom {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+    width: 100%;
+}
+.mint-button{
+    height:auto;
+}
+.mint-field .is-textarea .mint-cell-title {
+    padding: 0.1rem 0;
+    height: 1.5rem;
+}
+.mint-field-core{
+    background-color: #fff;
+    padding-left: 0;
+
+}
+.overtime_date .mint-cell-value .mint-field-core{
+    margin-left: -0.06rem;
+}
+.is-success img{
+    width: 0.9rem;
+    height: 0.9rem;
+}
+/*.source svg,.source .el-progress-circle,*/
+/*.source .el-progress__text,.source .el-icon-check,.source .el-icon-close,*/
+/*.source .el-upload-list__item-preview{*/
+    /*display:none;*/
+/*}*/
+
+.el-upload-list__item-thumbnail{
+    width: 0.9rem;
+    height: 0.9rem;
+}
+.el-upload-list__item-name{
+    display:none;
+}
+.el-upload--picture-card {
+    background-color: #fbfdff;
+    border: 1px dashed #c0ccda;
+    border-radius: 0.05rem;
+    box-sizing: border-box;
+    width: 0.9rem;
+    height: 0.9rem;
+    cursor: pointer;
+    line-height: 0.9rem;
+    vertical-align: top;
+    margin-left: 0.2rem;
+}
+.el-upload {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.3rem;
+}
+.el-upload-list--picture-card {
+    margin: 0;
+    display: inline;
+    vertical-align: top;
+}
+.el-upload-list {
+    margin: 0;
+    padding: 0;
+
+}
+.source {
+    min-height: 0.9rem;
+    padding: 0.05rem;
+    background: #fff;
+}
+.el-upload-list__item{
+    height: 0.9rem;
+    margin:0 0.2rem 0 0.1rem;
+    float: left;
+}
+.el-upload-list__item-delete{
+    height: 0.3rem;
+}
+.el-icon-delete2{
+    color:red;
+    font-size: 0.25rem;
+}
+.el-upload-list__item-actions{
+    height: 0.1rem;
+}
+.btn-submit{
+    width: 90%;
+    margin: 0.5rem 5%;
+    border-radius: 0;
+}
+.el-progress__text,.el-upload-list__item-preview,.el-upload-list__item-status-label,.el-progress-circle
+{
+    display: none;
+}
+.el-icon-close{
+    color:red;
+}
+.mint-field .mint-cell-title{
+    width: 1.2rem;
+}
+.textarea_mes .mint-field .mint-cell-title{
+    height:1.4rem;
+}
+.text_number{
+    float: right;
+    font-size: 0.25rem;
+    color:#aaa;
+    margin-right: 0.2rem
+}
+.apply_single_tag{
+    min-height: 0.65rem;
+    background: #fff;
+}
+.apply_single_tag .button-new-tag{
+    position: absolute;
+    float: right;
+    right: 0;
+    margin-right: 0.2rem;
+    margin-top: 0.1rem;
+    color:#20A0FF;
+    border: 1px solid #20A0FF;
+    z-index: 99;
+}
+.el-tag{
+    float: left;
+    margin-left: 0.2rem;
+    height: 0.45rem;
+    margin-top: 0.1rem;
+    line-height: 0.45rem;
+    color:#20A0FF;
+    background: #fff;
+    border: 1px solid #20A0FF;
+}
+.el-input--mini .el-input__inner {
+    height: 0.6rem;
+    line-height: 0.6rem;
+    width: 30%;
+    margin-left: 0.19rem;
+    float: left;
+}
+.button-new-tag1{
+    position: absolute;
+    float: left;
+    margin-left: 0.2rem;
+    margin-top: 0;
+    color: #20A0FF;
+    border: 1px solid #20A0FF;
+    padding: 9px 13px;
+}
+.apply_single1{
+    height: 0.65rem;
+    background: #fff;
+}

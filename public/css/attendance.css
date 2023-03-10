@@ -1,0 +1,325 @@
+.attendance_header{
+    width: 100%;
+    height: 0.7rem;
+    background: #2BA7EA;
+}
+
+.attendance_check_header{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    padding-top: 8px;
+    position: fixed;
+    font-size: 16px;
+    background: #2d8cf0;
+}.attendance_check_header span{
+     color: #ffffff;
+}
+.attendance-title{
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.attendance-check-info{
+    background-color: #F3F8FE;
+    min-height: 450px;
+}
+.attendance-check-detail{
+    width: 100%;
+    padding-bottom: 40px;
+    border-top: solid 1px lightgray;
+}
+.attendance-cell{
+    padding-top: 8px;
+    border-bottom: solid 1px lightgray;
+    background-color: #ffffff;
+    height: 30px;
+}
+.mint-cell{
+    border-bottom: solid 1px lightgray;
+
+}
+.detail-type{
+    float: left;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #4C4A81;
+}
+.detail-value{
+    float: right;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #8A8C9A;
+}
+.attendance-btn{
+    text-align: center;
+}
+.attendance-title p{
+    font-size: 18px;
+    color: #5E6097;
+}.attendance_without_data{
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    color: #5E6097;
+}
+.attendance_check_detail{
+    width: 100%;
+    height: 3rem;
+    background-image: url("../images/detail_bgimg.jpg");
+    background-size:100% 100%;
+}
+#toymd{
+    height: 0.7rem;
+    vertical-align: middle;
+    padding: 0 0;
+    background: rgba(255,255,255,0);
+    width: 30%;
+    font-size: 0.3rem;
+    float: left;
+    margin-left: 35%;
+}
+.mint-cell-wrapper{
+    background-size: 0 0;
+}
+.mint-cell{
+    min-height: 0.7rem;
+}
+.mint-field-core{
+       background: rgba(255,255,255,0);
+    text-align: center;
+    color: #fff;
+
+    font-size: 0.3rem;
+    font-weight: 600;
+}
+.mint-field.is-textarea .mint-cell-title {
+    padding: 10px 10px;
+}
+.mint-cell-text{
+    color: #5E6097;
+}
+.mintui-field-error:before{
+    display: none;
+}
+
+.attendance_header p{
+    height: 0.65rem;
+    line-height: 0.7rem;
+    font-size: 0.3rem;
+    color: #fff;
+    float: right;
+    margin-right: 0.2rem;
+}
+.mint-popup-top {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    margin-top: 0.65rem;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+}
+#attendance .list_card{
+    width: 85%;
+    margin-left: 7.5%;
+    height: 2.7rem;
+    background: #fff;
+    border: none;
+    border-radius: 0.05rem;
+    margin-top: 0.3rem;
+    box-shadow: 0 0 0.2rem rgba(0,0,0,0.1);
+    padding: 0 0;
+    padding-top: 0.1rem;
+}
+#attendance_check{
+    background: #fff;
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    box-shadow: 0px 0px 5px #ccc;
+}
+#overtimeList .list_card,#leaveList .list_card,#appendList .list_card{
+    width: 100%;
+    height: 2.8rem;
+    background: #fff;
+    border: none;
+    border-radius: 0.05rem;
+    box-shadow: 0 0 0.2rem rgba(0,0,0,0.1);
+    padding: 0 0;
+    padding-top: 0.1rem;
+}
+#attendance .overtime_list{
+    background-image: url("../images/overtime_list.jpg");
+    background-size:100% 100%;
+}
+#attendance .leave_list{
+    background-image: url("../images/leave_list.jpg");
+    background-size:100% 100%;
+}
+#attendance .attend_list{
+    background-image: url("../images/attendance_list.jpg");
+    background-size:100% 100%;
+}
+#overtimeList .overtime_list{
+    background-image: url("../images/overtime_list_bgimg.jpg");
+    background-size:100% 100%;
+}
+#leaveList .overtime_list{
+    background-image: url("../images/leave_list_bgimg.jpg");
+    background-size:100% 100%;
+}
+#appendList .overtime_list{
+    background-image: url("../images/append_list_bgimg.jpg");
+    background-size:100% 100%;
+}
+#overtimeList .list_content p,#leaveList .list_content p,#appendList .list_content p{
+    color: #fff;
+    margin-bottom: 0.05rem;
+}
+.list_header{
+    height: 0.5rem;
+    width: 96%;
+    margin-left: 2%;
+}
+.list_left,.list_right{
+    height: 0.5rem;
+    width: 50%;
+    float: left;
+}
+.list_left img{
+    width: 0.4rem;
+    height: auto;
+    margin-right: 0.1rem;
+    margin-top: 0.05rem;
+    float: left;
+}
+.list_left p{
+    font-size: 0.25rem;
+    line-height: 0.5rem;
+}
+.list_right{
+    text-align: right;
+}
+.list_right a{
+    text-decoration: none;
+}
+.list_right p{
+    color: #2BA7EA;
+    font-size: 0.25rem;
+    line-height: 0.5rem;
+}
+.list_content{
+    padding: 0.15rem 0;
+}
+.second_man{
+    text-align: center;
+    width: 100%;
+}
+.list_content p{
+    font-size: 0.25rem;
+    text-align: center;
+    z-index: 100;
+}
+.second_man img{
+    width: 0.8rem;
+    border-radius: 50%;
+}
+
+.list_label{
+    color: #fff;
+    width: 0.25rem;
+    height: 0.25rem;
+    line-height: 0.25rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    font-size: 0.15rem;
+}
+
+.mes{
+    margin-top: -0.4rem;
+}
+
+.second_man img{
+    margin-top: 0.1rem;
+    width: 1.2rem;
+    height: auto;
+    border-radius: 50%;
+}
+#attendance .second_man img{
+    margin-top: 0.1rem;
+    width: 1.05rem;
+    height: auto;
+    border-radius: 50%;
+}
+.second_man .list_label img,#attendance .second_man .list_label img{
+    margin-top: 0rem;
+    width: 0.25rem;
+    margin-left: 0.02rem;
+    border: none;
+}
+#attendance .list_content{
+    padding: 0 0;
+}
+.list_content{
+    padding: 0.3rem 0;
+}
+.details_data_list{
+    margin-top: 0.3rem;
+    min-height: 2.5rem;
+    border-radius: 0.05rem;
+    width: 92%;
+    margin-left: 4%;
+}
+#child_data_list{
+    height: 1rem;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 1px;
+}
+.data_number,.data_name,.data_time,.data_img{
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.25rem;
+    float: left;
+
+}
+.data_number{
+    width: 10%;
+    text-align: center;
+    color: #ccc;
+}
+.data_img{
+    width: 18%;
+    height: 1rem;
+}
+.data_name{
+    width: 50%;
+    color: #333;
+}
+.data_time{
+    width: 15%;
+    text-align: right;
+    padding-right: 0.2rem;
+    color: #ccc;
+}
+.data_img img{
+    width: 0.78rem;
+    border-radius: 50%;
+    border: 0.01rem solid #fff;
+    margin-top: 0.1rem;
+}
+
+.bg_purple{
+    width: 33%;
+    float: left
+}
+.bg_card{
+    width: 33%;
+    float: left;
+}
+.card_right{
+    width: 33%;
+    float: right;
+}

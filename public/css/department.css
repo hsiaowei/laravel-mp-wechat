@@ -1,0 +1,591 @@
+::-webkit-input-placeholder{
+    color: #fff;
+}
+#detailedDatum{
+    width: 100%;
+}
+.myDepartment_header{
+    width: 100%;
+    height: 3.2rem;
+    background-image: url("../images/department_bgimg.jpg");
+    background-size:100% 100%;
+}
+.mint-searchbar-cancel{
+    font-size: 0.25rem;
+    margin-left: 0;
+}
+.mint-searchbar{
+    margin-top: 0.3rem;
+    width: 70%;
+    margin-left: 15%;
+    padding: 0 0;
+    background-color:rgba(255,255,255,0);
+}
+.mint-searchbar-inner{
+    padding: 0 0.2rem;
+    border-radius: 0.5rem;
+    background: rgba(255,255,255,0.5);
+    height: 0.4rem;
+}
+.mint-searchbar-inner .mintui-search{
+    color: #fff;
+    margin-top: 0.05rem;
+}
+.mint-searchbar-core{
+    height: 90%;
+    width: 95%;
+    vertical-align: middle;
+    background:rgba(255,255,255,0);
+    color: #fff;
+}
+.avatar_block{
+    width: 100%;
+    position: absolute;
+    z-index: 99;
+    margin-top: -2.1rem;
+}
+.avatar_block img{
+    margin-left: 0.25rem;
+    float: left;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.user_data{
+    width: 75%;
+    margin-left: 4%;
+    float: left;
+    height: 1rem;
+    padding-top: 0.15rem;
+}
+.user_data p,.user_department p{
+    color: #fff;
+    font-size: 0.28rem;
+}
+.user_number{
+    font-size: 0.2rem;
+    color:rgba(255,255,255,0.8);
+}
+.user_message{
+    width: 100%;
+    height: 1rem;
+    margin-bottom: 0.3rem;
+}
+.user_department{
+    width: 100%;
+    text-align: center;
+}
+.user_department .department_text{
+    font-size: 0.2rem;
+    color:rgba(255,255,255,0.8);
+}
+.department_data{
+    width: 100%;
+}
+.department_name{
+    width: 100%;
+    display: inline-block;
+    line-height: 0.4rem;
+    padding-top: 5px;
+    background: #fff;
+}
+.department_name .depart_name{
+    width: 65%;
+    display: block;
+    float: left;
+    font-size: 0.26rem;
+    padding-left: 0.3rem;
+    font-weight: 600;
+}
+.department_name .depart_number{
+    width: 25%;
+    float: right;
+    display: block;
+    text-align: right;
+    font-size: 0.26rem;
+    padding-right: 0.28rem;
+    font-weight: 600;
+    color: #9F9F9F;
+}
+.depart_member{
+    width: 100%;
+    height: 0.8rem;
+    background: #fff;
+    margin-bottom: 1px;
+}
+.depart_member img{
+    float: left;
+    margin-left: 0.3rem;
+    height: 0.68rem;
+    width: 0.68rem;
+    border: 0.01px solid #fff;
+    border-radius: 50%;
+    margin-top: 0.05rem;
+}
+.member_data{
+    width: 60%;
+    float: left;
+    margin-top: 0.1rem;
+}
+.member_data .depart_name{
+    padding-left: 0.2rem;
+    font-size: 0.28rem;
+}
+.member_data .depart_number{
+    padding-left: 0.2rem;
+    font-size: 0.22rem;
+    color: #9F9F9F;
+}
+.member_data .depart_name span{
+    font-size: 0.22rem;
+    color: #9F9F9F;
+}
+.next_icon{
+    width: 20%;
+    float: left;
+    text-align: right;
+    height: 0.8rem;
+    font-size: 0.4rem;
+    line-height: 0.8rem;
+    color: #9F9F9F;
+}
+.go_top{
+    float: right;
+    position: fixed;
+    z-index: 9999;
+    bottom: 5%;
+    left: 85%;
+}
+.go_top img{
+    width: 0.7rem;
+    height: auto;
+}
+.mintui-field-error:before{
+    display: none;
+}
+.detailedDatum_header{
+    width: 100%;
+    min-height: 5rem;
+    background: #fff;
+    margin-bottom: 0.3rem;
+}
+.datum_header{
+    text-align: center;
+    width: 100%;
+    height: 2.6rem;
+    background-image: url("../images/datum_bgimg.jpg");
+    background-size:100% 100%;
+}
+.user_name{
+    padding-top: 0.4rem;
+    padding-bottom: 0.15rem;
+    font-size: 0.35rem;
+    color: #fff;
+}
+.user_emp_no{
+    font-size: 0.3rem;
+    color: #fff;
+}
+.user_datum{
+    font-size: 0.22rem;
+    color: #fff;
+}
+.child_img{
+    text-align: center;
+    margin-top: -0.7rem;
+    height: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+.center_img img{
+    width: 1.2rem;
+    height: auto;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    box-shadow: 1px 1px 10px #ddd;
+}
+.left_img img,.right_img img{
+    width: 0.8rem;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px #ddd;
+}
+.left_mes{
+    border-right:1px solid #ddd;
+}
+.datum_img{
+    height: 0.8rem;
+}
+.datum_mes{
+    text-align: center;
+    height: 1rem;
+}
+.user_title{
+    font-size: 0.28rem;
+    margin-bottom: 0.1rem;
+    font-weight: 600;
+}
+.user_mes{
+    font-size: 0.25rem;
+    margin-bottom: 0.1rem;
+}
+.datum_other{
+    width: 100%;
+}
+.entry_time{
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.25rem;
+    border-bottom: 1px solid #ddd;
+}
+.entry_time span{
+    margin-left: 0.3rem;
+}
+.contract_time{
+    width: 100%;
+    background: #fff;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.25rem;
+}
+.contract_time span{
+    margin-left: 0.3rem;
+}
+.contract_time_left{
+    width: 60%;
+    float: left;
+}
+.contract_time_right{
+    width: 35%;
+    float: left;
+    font-size: 0.22rem;
+    color: #26A2FF;
+    text-align: right;
+}
+.staff_experience{
+    width: 100%;
+    background: #fff;
+    min-height: 1rem;
+    padding: 0.2rem 0;
+    margin-bottom: 0.3rem;
+}
+.experience{
+    text-align: center;
+}
+.experience_child{
+    width: 80%;
+    margin-left: 10%;
+}
+.experience_child img{
+    width: 100%;
+    height: auto;
+    margin: auto 0;
+    box-shadow: 1px 1px 10px #ddd;
+    display:block;
+    border-radius: 0.05rem;
+}
+.staff_datum{
+    width: 100%;
+    min-height: 2rem;
+    background-color: #fff;
+    padding-top: 0.2rem;
+    padding-bottom: 0.1rem;
+}
+.staff_phone{
+    height: 1rem;
+    margin-bottom: 0.2rem;
+}
+.staff_phone_left,.staff_phone_right{
+    width: 90%;
+    margin-left: 5%;
+    height: 1rem;
+    background-color: #fff;
+    border-radius: 0.05rem;
+    padding-top: 0;
+    box-shadow: 1px 1px 10px #ddd;
+    border: none;
+}
+.fa-mobile-phone{
+    font-size: 0.6rem;
+    width: 18%;
+    float: left;
+    text-align:center;
+    height: 1rem;
+    line-height: 1rem;
+    color: #2BA7EA;
+}
+.fa-phone{
+    font-size: 0.45rem;
+    width: 18%;
+    float: left;
+    text-align:center;
+    height: 1rem;
+    line-height: 1rem;
+    color: #CE8492;
+}
+.staff_phone_num1{
+    width: 62%;
+    float: left;
+    padding-top: 0.25rem;
+}
+.staff_phone_num2{
+    width: 62%;
+    float: left;
+    padding-top: 0.1rem;
+}
+.user_phone{
+    width: 92%;
+    float: left;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.25rem;
+    border: none;
+    background-color: rgba(255,255,255,0);
+}
+.danger_name,.danger_phone{
+    width: 90%;
+    float: left;
+    height: 0.36rem;
+    line-height: 0.36rem;
+    font-size: 0.25rem;
+    border: none;
+    background-color: rgba(255,255,255,0);
+}
+.phone_editor{
+    width: 20%;
+    font-size: 0.22rem;
+    float: left;
+    color: #2BA7EA;
+    padding-top: 0.05rem;
+    text-align: center;
+}
+.staff_address{
+    margin-bottom: 0.2rem;
+    width: 95%;
+    margin-left: 2.5%;
+    height: 1rem;
+    box-shadow: 0 0 10px #ddd;
+}
+.fa-map-marker{
+    width: 10%;
+    float: left;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.4rem;
+    text-align: center;
+    color: #2BA7EA;
+}
+.staff_address_mes{
+    width: 80%;
+    float: left;
+    padding-top: 0.25rem;
+}
+.address_mes {
+    width: 100%;
+    float: left;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    border: none;
+    font-size: 0.28rem;
+    background-color: rgba(255,255,255,0);
+}
+.staff_address_editor{
+    width: 10%;
+    float: left;
+    font-size: 0.22rem;
+    color: #2BA7EA;
+    padding-top: 0.05rem;
+    text-align: center;
+}
+.position_detail{
+    width: 95%;
+    margin-left: 2.5%;
+    min-height:1.3rem;
+}
+.position_table_detail{
+    width: 100%;
+    background: #fff;
+    min-height: 0.75rem;
+    padding: 0.1rem 0;
+}
+.fa-circle1{
+    width: 2%;
+    float: left;
+    height: 0.3rem;
+    line-height: 0.2rem;
+    text-align: center;
+    color: #2BA7EA;
+    font-size: 0.8rem;
+}
+.position_table{
+    margin-left: 1%;
+    width: 97%;
+    float: left;
+    margin-top: -0.1rem;
+}
+.table_title{
+    height: 0.4rem;
+}
+.table_title td{
+    font-size: 0.24rem;
+}
+.table_mes{
+    height: 0.4rem;
+}
+.table_mes td{
+    font-size: 0.25rem;
+}
+.mint-popup{
+    width: 90%;
+    background:rgba(255,255,255,0);
+    overflow-y: auto;
+    height: 90%;
+}
+.contract_mes,.id_card_mes,.bank_card_mes{
+    background: #D3D3D3;
+    min-height: 1.5rem;
+    width: 100%;
+    border-radius: 0.15rem;
+    margin-bottom: 0.15rem;
+    padding: 0.4rem 0;
+}
+.contract_top{
+    width: 100%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    background: #D6D6D6;
+    border-radius: 0.15rem 0.15rem 0 0;
+    font-size: 0.24rem;
+    text-align: left;
+}
+
+.contract_theme,.contract_deadline{
+    width: 47%;
+    float: left;
+    margin-left: 3%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.25rem;
+}
+.fa-500px,.fa-credit-card{
+    color: #2BA7EA;
+    float: left;
+    font-size: 0.3rem;
+    line-height: 0.6rem;
+    margin-right: 0.15rem;
+}
+.contract_state,.contract_trial{
+    width: 47%;
+    float: right;
+    margin-right: 3%;
+    text-align: right;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.25rem;
+}
+.contract_start_stop{
+    width: 94%;
+    height: 0.55rem;
+    line-height: 0.55rem;
+    margin-left: 3%;
+    color:#333;
+}
+.contract_bottom{
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+.id_card_top{
+    width: 97%;
+    margin-left: 3%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    background: #D6D6D6;
+    border-radius: 0.15rem 0.15rem 0 0;
+    font-size: 0.25rem;
+    text-align: left;
+}
+.id_card_center{
+    width: 97%;
+    margin-left: 3%;
+    height: 0.35rem;
+    line-height: 0.35rem;
+    font-size: 0.24rem;
+    text-align: left;
+}
+.id_card_center p,.id_card_national,.id_card_sex{
+    float: left;
+    margin-right: 0.1rem;
+}
+.id_card_sex{
+    margin-right: 0.3rem;
+}
+.id_card_bottom{
+    width: 97%;
+    margin-left: 3%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.28rem;
+    text-align: left;
+}
+.id_card_bottom p{
+    float: left;
+    margin-right: 0.1rem;
+    font-weight: 600;
+}
+.bank_card_top{
+    width: 97%;
+    margin-left: 3%;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    background: #D6D6D6;
+    border-radius: 0.15rem 0.15rem 0 0;
+    font-size: 0.25rem;
+    text-align: left;
+}
+.bank_card_center{
+    width: 97%;
+    min-height: 0.8rem;
+    margin: 0.1rem 0 0 3%;
+}
+.bank_card_img{
+    width: 100%;
+    float: left;
+    min-height: 0.8rem;
+    text-align: left;
+}
+.bank_card_img img{
+    float: left;
+    width: 0.8rem;
+    height: auto;
+    margin-right: 0.3rem;
+}
+.bank_name{
+    height: 0.5rem;
+    font-size: 0.3rem;
+    margin: 0;
+}
+.bank_name_1{
+    height: 0.8rem;
+    font-size: 0.3rem;
+    margin: 0;
+    margin-bottom: 0.1rem;
+}
+.bank_type{
+    height: 0.3rem;
+    font-size: 0.2rem;
+    margin: 0;
+}
+.bank_card_bottom{
+    width: 100%;
+    text-align: center;
+    height: 1.4rem;
+    line-height: 1rem;
+    font-size: 0.3rem;
+}
+.mint-searchbar-cancel{
+    display: none;
+}
+.mint-search-list{
+    display: none;
+}
