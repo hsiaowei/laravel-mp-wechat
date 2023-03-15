@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Hr\User;
-use EasyWeChat\Kernel\Messages\Message;
-use Illuminate\Http\Request;
-use Log;
-use EasyWeChat\Factory;
 use App\Http\Handler\EventMessageHandler;
 use App\Http\Handler\ImageMessageHandler;
 use App\Http\Handler\MediaMessageHandler;
 use App\Http\Handler\OtherMessageHandler;
 use App\Http\Handler\TextMessageHandler;
-use Illuminate\Support\Facades\Session;
+use App\Models\Hr\User;
+use EasyWeChat\Factory;
 use EasyWeChat\Kernel\Exceptions\InvalidArgumentException;
+use EasyWeChat\Kernel\Messages\Message;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use Log;
 
 class WeChatController extends Controller
 {
@@ -98,7 +98,7 @@ class WeChatController extends Controller
             [
                 "type" => "view",
                 "name" => "主页",
-                "url"  => "http://wxqyh.areschina.com/user/view/home"
+                "url" => "http://wxqyh.areschina.com/user/view/home"
             ],
             /*[
                 "name"       => "菜单",
@@ -133,10 +133,35 @@ class WeChatController extends Controller
     {
         $options = config('wechat.official_account.default');
         $app = Factory::officialAccount($options);
+
+        $empName = '张三';
+        $type = '旷工';
+        $date = '2023/03/02';
+        $begin = '2023/03/02 08:30';
+        $end = '2023/03/02 17:30';
         $app->template_message->send([
+            'touser' => 'o7Jpk6Dqi-iH3gXIK3oy8LWqZeno',
+            'template_id' => 'p2mZFJg8OYeT_ePsn4Zuob5RzaFly-lPfh2v9bw6DEc',
+            'url' => env('APP_URL') . '/user/view/home',
+            'scene' => 1000,
+            'data' => [
+                'first' => $empName . '您好，您于' . $date . '存在一笔 ' . $type . ' 类型的考勤异常',
+                'keyword1' => $begin,
+                'keyword2' => $end,
+                'remark' => '请尽快处理，谢谢!'
+            ],
+        ]);
+
+        /*        $message = new Text('考勤异常通知
+                张三您好，您于2023/03/02存在一笔 旷工类型的考勤异常考勤异常开始日期: 2023/03/02 08:30考勤异常结束日期:2023/03/02 17:30请尽快处理，谢谢!');
+
+                $result = $app->customer_service->message($message)->to('o7Jpk6Dqi-iH3gXIK3oy8LWqZeno')->send();*/
+
+
+        /*$app->template_message->send([
             'touser' => 'oziq_s1a4s_bCkp05yOXFhaoEW7U',
-            'template_id' => 'QlY89rFaD_99XfDRaiskvTItHjSeVzws3YP5WKB8sNc',
-            'url' => 'https://easywechat.org',
+            'template_id' => 'p2mZFJg8OYeT_ePsn4Zuob5RzaFly-lPfh2v9bw6DEc',
+            'url' => env('APP_URL').'/user/view/home',
             'scene' => 1000,
             'data' => [
                 'empName' => '张三',
@@ -144,7 +169,7 @@ class WeChatController extends Controller
                 'type' => '忘刷',
                 'time' => '2023/03/02 08:30~2023/03/02 17:30'
             ],
-        ]);
+        ]);*/
     }
 
     /**
@@ -156,10 +181,10 @@ class WeChatController extends Controller
     {
         // 跳转地址
         $redirect_uri = urldecode($request->query("uri", "/"));
-        $empUser = Session::get("wechat_user_info",[]);
+        $empUser = Session::get("wechat_user_info", []);
         // 未登录
-        Log::info('call>user:'. json_encode($empUser));
-        $callback_uri = $_SERVER['APP_URL'] . '/callback?uri=' . urlencode($redirect_uri);
+        Log::info('call>user:' . json_encode($empUser));
+        $callback_uri = $_SERVER['APP_URL'] . '/wechat/callback?uri=' . urlencode($redirect_uri);
         // 配置信息
         //dd($empUser,$wechatUser);
         if (empty($empUser)) {
@@ -191,9 +216,19 @@ class WeChatController extends Controller
                 return redirect('/userBind');
             }
         }
+        // 缓存信息
         Session::put('wechat_user_info', $empUser);
+
+        if ($empUser['company_id'] == 22) {
+            return Response()->view("Layout.WechatError");
+        }
         Session::put('companyId', $empUser['company_id']);
         Session::put('empNo', $empUser['emp_no']);
+        // by Hsiaowei Debug
+        if ($wechatUser['name'] == 'Hsiaowei') {
+            Session::put('empNo', str_replace('-A', '', $empUser['emp_no']));
+        }
+
         return redirect($redirect_uri);
     }
 

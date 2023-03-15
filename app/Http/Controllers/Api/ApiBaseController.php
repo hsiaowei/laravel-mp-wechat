@@ -29,7 +29,7 @@ class ApiBaseController extends Controller
     public function setStatusCode($code)
     {
         $this->statusCode = $code;
-          return $this;
+        return $this;
     }
 
     /**

@@ -4,10 +4,6 @@ namespace App\Http\Controllers\HrService;
 
 
 use Illuminate\Http\Request;
-use App\Models\Hr\User;
-use App\Models\Hr\Canlendar;
-
-use App\Http\Controllers\HrService\HrBaseController;
 
 class AttendanceController extends HrBaseController
 {
@@ -32,9 +28,9 @@ class AttendanceController extends HrBaseController
      */
     public function myCanlendarView(Request $request)
     {
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
-        $companyid = $userinfo['company_id'];
+        //$userinfo = session('wechat_user_info');
+        $emp_no = session('empNo');
+        $companyid = session('companyId');
         $data = [
             'userId' => $emp_no,
             'companyId' => $companyid,
@@ -56,8 +52,8 @@ class AttendanceController extends HrBaseController
     public function attendanceSummaryView(Request $request)
     {
 
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        //$userinfo = session('wechat_user_info');
+        $emp_no = session('empNo');
         $companyid = session('companyId');
         $data = [
             'userId' => $emp_no,
@@ -78,8 +74,8 @@ class AttendanceController extends HrBaseController
      */
     public function attendanceDeatilView(Request $request)
     {
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        //$userinfo = session('wechat_user_info');
+        $emp_no = session('empNo');
         $companyid = session('companyId');
 
         //判断是否是查询别人的信息
@@ -110,8 +106,8 @@ class AttendanceController extends HrBaseController
      */
     public function attendanceListView(Request $request)
     {
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        //$userinfo = session('wechat_user_info');
+        $emp_no = session('empNo');
         $companyid = session('companyId');
         $data = [
             'userId' => $emp_no,
@@ -132,8 +128,8 @@ class AttendanceController extends HrBaseController
      */
     public function overTimeRankingView(Request $request)
     {
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        //$userinfo = session('wechat_user_info');
+        $emp_no = session('empNo');
         $companyid = session('companyId');
         $data = [
             'userId' => $emp_no,
@@ -157,8 +153,8 @@ class AttendanceController extends HrBaseController
      */
     public function leaveRankingView(Request $request)
     {
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        //$userinfo = session('wechat_user_info');
+        $emp_no = session('empNo');
         $companyid = session('companyId');
 
         $data = [
@@ -183,10 +179,9 @@ class AttendanceController extends HrBaseController
     public function attendRankingView(Request $request)
     {
 
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        //$userinfo = session('wechat_user_info');
+        $emp_no = session('empNo');
         $companyid = session('companyId');
-
         $data = [
             'userId' => $emp_no,
             'companyId' => $companyid,
@@ -210,13 +205,12 @@ class AttendanceController extends HrBaseController
     {
 
         $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        $emp_no = session('empNo');
         $companyid = session('companyId');
-
         $data = [
             'userId' => $emp_no,
             'companyId' => $companyid,
-            'userName' => array_key_exists("name", $userinfo) ? $userinfo['name'] : '张无忌',
+            'userName' => isset($userinfo['emp_name']) ? $userinfo['emp_name'] : '张无忌',
             'month_no' => $request->get('month_no') ? $request->get('month_no') : date('Y-m', time()),
 
         ];

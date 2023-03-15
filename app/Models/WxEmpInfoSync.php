@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class WxEmpInfoSync extends Model
 {
     //
-    protected  $table='wx_employee_info_sync';
+    protected $table = 'wx_employee_info_sync';
 }

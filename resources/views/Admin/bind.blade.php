@@ -104,7 +104,7 @@
                         that.showMsg('手机号长度不匹配或有误！');
                         return;
                     }
-                    axios.get("/api/user/getexist", {
+                    axios.get("/api/user/exist", {
                         params: {
                             iphone: that.iphone,
                             idcard: that.idcard

@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class ConfigCode extends Model
 {
     //
-    protected $table='wx_config_code';
-    public $timestamps		=	true;
-    protected $primaryKey	=	'id';
-    public $incrementing	=	true;
+    protected $table = 'wx_config_code';
+    public $timestamps = true;
+    protected $primaryKey = 'id';
+    public $incrementing = true;
     /**
      * The attributes that are mass assignable.
      *
@@ -31,7 +31,7 @@ class ConfigCode extends Model
      */
     public function getCodeByType($type)
     {
-        return $this->where('type',$type)->get()->toArray();
+        return $this->where('type', $type)->get()->toArray();
     }
 
 

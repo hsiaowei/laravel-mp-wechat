@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class AttendanceCheck extends Model
 {
     //
-    protected $table='wx_attendance_user_status';
-    public $timestamps		=	true;
-    protected $primaryKey	=	'id';
-    public $incrementing	=	true;
+    protected $table = 'wx_attendance_user_status';
+    public $timestamps = true;
+    protected $primaryKey = 'id';
+    public $incrementing = true;
 
     /**
      * 获取考勤信息
@@ -21,9 +21,9 @@ class AttendanceCheck extends Model
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function getAttendanceInfo($companyid,$month_no,$status,$select='*')
+    public function getAttendanceInfo($companyid, $month_no, $status, $select = '*')
     {
-        return   $this->select($select)->where('company_id',$companyid)->where('month_no',$month_no)->where('status',$status)->orderBy('confirm_time')->limit(10)->get();
+        return $this->select($select)->where('company_id', $companyid)->where('month_no', $month_no)->where('status', $status)->orderBy('confirm_time')->limit(10)->get();
     }
 
     /**
@@ -37,7 +37,7 @@ class AttendanceCheck extends Model
      */
     public function updateBatch($ids)
     {
-        return   $this->whereIn('id',$ids)->update(['status'=>2,'updated_at'=>date('Y-m-d H:i:s',time())]);
+        return $this->whereIn('id', $ids)->update(['status' => 2, 'updated_at' => date('Y-m-d H:i:s', time())]);
     }
 
     /**
@@ -49,19 +49,19 @@ class AttendanceCheck extends Model
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function getUserAttendanceInfo($companyid,$month_no,$emp_no)
+    public function getUserAttendanceInfo($companyid, $month_no, $emp_no)
     {
-        $month_data= date_parse_from_format('Y-m',$month_no);
+        $month_data = date_parse_from_format('Y-m', $month_no);
 
-        $month_no=$month_data['year'].'-'.( strlen($month_data['month'])>1?$month_data['month']:'0'.$month_data['month']);
+        $month_no = $month_data['year'] . '-' . (strlen($month_data['month']) > 1 ? $month_data['month'] : '0' . $month_data['month']);
 
-       $result= $this->where('company_id',$companyid)
-                       ->where('month_no',$month_no)
-                       ->where('emp_no',$emp_no)
-                        ->orderBy('created_at','desc')
-                        ->first();
+        $result = $this->where('company_id', $companyid)
+            ->where('month_no', $month_no)
+            ->where('emp_no', $emp_no)
+            ->orderBy('created_at', 'desc')
+            ->first();
 
-       return $result;
+        return $result;
 
     }
 

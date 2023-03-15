@@ -21,8 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::any('addUser', 'Api\WorkWechat\UserController@addUser');
 //Route::any('sendMessage/{msg_type}', 'Api\WorkWechat\MessengerController@sendMessage');
 //
-//Get compnayid
-Route::any('company/getCompanyId', 'Api\SyncData\WxCompanyInfoController@getCompanyId');
 
 ////SYNC empbasic data
 //Route::post('emp/syncEmpBasic', 'Api\SyncData\WxEmpInfoController@syncEmpBasic');
@@ -31,7 +29,6 @@ Route::any('company/getCompanyId', 'Api\SyncData\WxCompanyInfoController@getComp
 ////SYNC shift data
 //Route::post('shift/syncShift', 'Api\SyncData\WxShiftinfoController@syncShift');
 
-Route::post('create-menu', 'Api\WorkWechat\WxController@createAgentMenu');
 //SYNC data
 Route::group(['middleware'=>['cut.database']], function(){
     Route::any('syncdata', 'Api\SyncData\WxIntermediateTableController@syncData');
@@ -39,17 +36,7 @@ Route::group(['middleware'=>['cut.database']], function(){
     Route::any('user/delete', 'Api\HrService\UserController@deleteUserInfo');
 });
 // truncate
-Route::any('truncatePub', 'Api\SyncData\WxIntermediateTableController@truncatePub');
 Route::any('truncate', 'Api\SyncData\WxIntermediateTableController@truncate');
-
-//wx
-Route::any('wxentrance', 'Api\WorkWechat\WxController@wxEntrance');
-
-//企业微信入口
-Route::any('wework', 'Api\WorkWechat\WeworkController@wxEntrance');
-
-//获取打卡数据
-Route::post('get-clock', 'Api\WorkWechat\WxController@getPunchClockInfo');
 
 
 Route::group(['middleware'=>['wechat.auth']], function(){
@@ -60,7 +47,7 @@ Route::group(['middleware'=>['wechat.auth']], function(){
 
 // 不需要授权
 // 效验用户是否存在
-Route::get('/user/getexist','Api\HrService\UserController@getUserExist');
+Route::get('/user/exist','Api\HrService\UserController@getUserExist');
 // 用户绑定
 Route::get('/user/bind','Api\HrService\UserController@setUserBindEmp');
 //发送验证码

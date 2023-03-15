@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Api\HrService;
 
-use App\Models\Hr\Salaryp;
-use Illuminate\Http\Request;
-use App\Models\Hr\User;
-use App\Models\Hr\Leader;
-use App\Models\Hr\SalaryPwd;
-use App\Models\Hr\SalaryOldPwd;
-use App\Models\Hr\Salary;
-use App\Models\Hr\YearSalary;
 use App\Http\Controllers\HrService\HrBaseController;
+use App\Models\Hr\Leader;
+use App\Models\Hr\Salary;
+use App\Models\Hr\SalaryOldPwd;
+use App\Models\Hr\Salaryp;
+use App\Models\Hr\SalaryPwd;
+use App\Models\Hr\User;
+use App\Models\Hr\YearSalary;
+use Illuminate\Http\Request;
 
 class SalaryController extends HrBaseController
 {
@@ -97,7 +97,7 @@ class SalaryController extends HrBaseController
         $bank = $request->get('bank');
         $newPwd = $request->get('newpwd');
         $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_name'];
+        $emp_no = $userinfo['emp_no'];
 
         $userRes = $this->user->getUserInfo($companyId, $emp_no);
         $cardList = json_decode($userRes->emp_bank);
@@ -174,7 +174,7 @@ class SalaryController extends HrBaseController
         $this->validate($request, [
             'emp_no' => 'required',
         ]);
-        $companyId = session('companyId');
+        $companyId = session('companyId', 15);
         $emp_no = $request->get('emp_no');
         $month_no = $request->get('month_no');
         $emp_pay_type = $request->get('type', 1);
@@ -283,7 +283,7 @@ class SalaryController extends HrBaseController
     public function getQueryMoreInfo(Request $request)
     {
         $companyId = session('companyId');
-        $emp_no = $request->get('emp_no',session('empNo'));
+        $emp_no = $request->get('emp_no', session('empNo'));
         $year = $request->get('year');
 
 

@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers\Api\HrService;
 
+use App\Http\Controllers\HrService\HrBaseController;
 use App\Models\Hr\HolidayAll;
 use App\Models\Hr\HolidayDetail;
-use App\Models\Hr\Salaryp;
-use Illuminate\Http\Request;
 use App\Models\Hr\User;
-use App\Models\Hr\Leader;
-use App\Models\Hr\SalaryPwd;
-use App\Models\Hr\SalaryOldPwd;
-use App\Models\Hr\Salary;
-use App\Http\Controllers\HrService\HrBaseController;
+use Illuminate\Http\Request;
 
 class HolidayController extends HrBaseController
 {
@@ -19,12 +14,12 @@ class HolidayController extends HrBaseController
     protected $holiday_detail;
     protected $user;
 
-    public function __construct(HolidayAll $holidayAll,HolidayDetail $holidayDetail,User $user)
+    public function __construct(HolidayAll $holidayAll, HolidayDetail $holidayDetail, User $user)
     {
 
-        $this->user=$user;
-        $this->all_holiday=$holidayAll;
-        $this->holiday_detail=$holidayDetail;
+        $this->user = $user;
+        $this->all_holiday = $holidayAll;
+        $this->holiday_detail = $holidayDetail;
 
 
     }
@@ -45,15 +40,15 @@ class HolidayController extends HrBaseController
         ]);
 
         $companyId = session('companyId');
-        $emp_no =$request->get('emp_no');
-        $result=  HolidayAll::where('company_id',$companyId)->where('emp_no',$emp_no)->where('year',date('Y',time()))->first();
-      	
-      
-        if($result){
-         $result=$result ->toArray();
-            return  $this->success(0,'success',json_decode($result['holiday']) );
-        }else{
-            return  $this->success(1,'暂无当年年假数据');
+        $emp_no = $request->get('emp_no');
+        $result = HolidayAll::where('company_id', $companyId)->where('emp_no', $emp_no)->where('year', date('Y', time()))->first();
+
+
+        if ($result) {
+            $result = $result->toArray();
+            return $this->success(0, 'success', json_decode($result['holiday']));
+        } else {
+            return $this->success(1, '暂无当年年假数据');
         }
     }
 
@@ -69,20 +64,20 @@ class HolidayController extends HrBaseController
     public function getUserMonthHolidayDetail(Request $request)
     {
         $this->validate($request, [
-                'emp_no' => 'required',
+            'emp_no' => 'required',
         ]);
         $companyId = session('companyId');
-        $emp_no =$request->get('emp_no');
-        $month_no =$request->get('month_no')?$request->get('month_no'):date('Y-m');
-        $year =$request->get('year')?$request->get('year'):date('Y');
-        $holidayDetail=New HolidayDetail();
-        $result=  $holidayDetail->getYearHolidayInfo($companyId,$emp_no,$month_no,$year);
+        $emp_no = $request->get('emp_no');
+        $month_no = $request->get('month_no') ? $request->get('month_no') : date('Y-m');
+        $year = $request->get('year') ? $request->get('year') : date('Y');
+        $holidayDetail = new HolidayDetail();
+        $result = $holidayDetail->getYearHolidayInfo($companyId, $emp_no, $month_no, $year);
 //        $result=  $holidayDetail->getMonthHolidayInfo($companyid,$emp_no,$month_no);
 
-        if($result){
-            return  $this->success(0,'success',$result);
-        }else{
-            return  $this->success(1,'暂无当年月数据');
+        if ($result) {
+            return $this->success(0, 'success', $result);
+        } else {
+            return $this->success(1, '暂无当年月数据');
         }
     }
 

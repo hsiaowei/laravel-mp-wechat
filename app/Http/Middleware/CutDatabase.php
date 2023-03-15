@@ -3,8 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use GuzzleHttp\Client;
-use Illuminate\Http\Response;
 use Config;
 use Log;
 

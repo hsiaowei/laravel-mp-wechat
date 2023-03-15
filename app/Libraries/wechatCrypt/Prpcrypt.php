@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Libraries\wechatCrypt;
 
 use Illuminate\Support\Facades\Log;
@@ -88,8 +89,8 @@ class Prpcrypt
             print $e;
             return array(ErrorCode::$IllegalBuffer, null);
         }
-        Log::info(">>>from_receiveId:".$from_receiveId);
-        Log::info(">>>receiveId:".$receiveId);
+        Log::info(">>>from_receiveId:" . $from_receiveId);
+        Log::info(">>>receiveId:" . $receiveId);
         /*if ($from_receiveId != $receiveId) {
             return array(ErrorCode::$ValidateCorpidError, null);
         }*/

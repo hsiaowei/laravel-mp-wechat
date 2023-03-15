@@ -30,7 +30,7 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $exception
+     * @param \Exception $exception
      * @return void
      *
      * @throws \Exception
@@ -43,8 +43,8 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception $exception
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @throws \Exception
@@ -52,9 +52,9 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
 
-        if($exception instanceof  UnauthorizedHttpException){
+        if ($exception instanceof UnauthorizedHttpException) {
 
-            return  response()->json(['code'=>401,'msg'=>'token invalid']);
+            return response()->json(['code' => 401, 'msg' => 'token invalid']);
         }
         return parent::render($request, $exception);
     }

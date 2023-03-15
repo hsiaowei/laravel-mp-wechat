@@ -123,55 +123,6 @@
             created: function () {
             },
             methods: {
-                verifyIphone: function () {
-                    var that = this;
-                    if (that.iphone == '') {
-                        that.msg_show = true;
-                        that.msg = '手机号不能为空！';
-                        return;
-                    }
-                    if (that.idcard == '') {
-                        that.msg_show = true;
-                        that.msg = '身份证号码不能为空！';
-                        return;
-                    }
-                    axios.get("/api/user/getexist", {
-                        params: {
-                            iphone: that.iphone,
-                            idcard: that.idcard
-                        }
-                    }).then(function (res) {
-                        //console.log(res.data);
-                        if (res.data.code == 0) {
-                            that.verifyBtn = false;
-                        } else {
-                            that.msg_show = true;
-                            that.msg = res.data.msg;
-                        }
-                    });
-                },
-                sendVerifyCode: function () {
-                    var that = this;
-                    if (that.iphone == '') {
-                        that.msg_show = true;
-                        that.msg = '手机号不能为空！';
-                        return;
-                    }
-
-                    axios.get("/api/sendCode", {
-                        params: {
-                            iphone: that.iphone
-                        }
-                    }).then(function (res) {
-                        //console.log(res.data);
-                        that.msg_show = true;
-                        that.msg = res.data.msg;
-                    });
-
-                    that.msg_show = true;
-                    that.msg = "验证码发送成功！";
-                    that.verifyBtn = false;
-                },
                 bind: function () {
                     var that = this;
                     if (that.iphone == '') {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Libraries\sms\SmsFactory;
 use App\Models\WxVerifyCode;
 use Illuminate\Http\Request;
 

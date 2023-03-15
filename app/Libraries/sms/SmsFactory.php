@@ -16,12 +16,13 @@ class SmsFactory
      * @param string $code
      * @param ...$_
      */
-    public static function sendCode(string $iphone, string $code, ...$_){
+    public static function sendCode(string $iphone, string $code, ...$_)
+    {
 
 
-        switch (config('sms.default')){
+        switch (config('sms.default')) {
             case 'tencent':
-                return TencentCloudSms::sendCode($iphone,$code,...$_);
+                return TencentCloudSms::sendCode($iphone, $code, ...$_);
                 break;
             default:
                 return '其他平台暂未接入！';

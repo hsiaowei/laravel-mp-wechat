@@ -1,5 +1,6 @@
 <?php
-
+use Illuminate\Support\Facades\DB;
+use \Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | HR服务端路由
@@ -11,40 +12,64 @@
 |
 */
 
-
-Route::any('/session/flush', function (\Illuminate\Http\Request $request){
-    $request->session()->flush();
-});
-
 /*
  * 访问页面路由
  */
 
-Route::any('/wechat', 'WeChatController@serve');
-Route::any('/wechat/menu', 'WeChatController@menu');
-Route::any('/message', 'WeChatController@templateMessage');
-Route::any('/callback', 'WeChatController@callback');
-Route::any('/testSendTencentCloudSms', 'Api\VerifyCodeController@testSendTencentCloudSms');
+// 微信相关
+Route::group(['prefix' => "wechat"], function () {
 
-Route::get('/',function(){
+    Route::any('/', 'WeChatController@serve');
+    Route::any('/menu', 'WeChatController@menu');
+    Route::any('/message', 'WeChatController@templateMessage');
+    Route::any('/callback', 'WeChatController@callback');
+});
+
+Route::group(['prefix' => "tools"], function () {
+
+    Route::get('/session/flush', function (Request $request) {
+        $request->session()->flush();
+        return '清理成功';
+    });
+
+    Route::get('md5/encode', function (Request $request) {
+        $pwd = $request->get('pwd', 123456);
+        return "明文密码：$pwd,密文:" . md5(base64_encode($pwd));
+    });
+
+    Route::get('aes/decode', function (Request $request) {
+        $pwd = $request->get('pwd', '9sHNvNHkPpWo6Fccp2QsTw==');
+        return DB::select(DB::raw("SELECT AES_DECRYPT(FROM_BASE64('" . $pwd . "'),'wechat')"));
+    });
+
+    Route::get('aes/encode', function (Request $request) {
+        $pwd = $request->get('pwd', 123456);
+        return DB::select(DB::raw("SELECT TO_BASE64(AES_ENCRYPT('" . $pwd . "','wechat'))"));
+    });
+});
+
+
+// 测试短信发送
+Route::any('/sms/test', 'Api\VerifyCodeController@testSendTencentCloudSms');
+
+
+Route::get('/', function () {
     return view('welcome');
 });
-//Route::get('/db',function(){
-//    return DB::select('select * from wx_personal_information_page limit 1 ');
-//});
 
 
-Route::get('userBind','HrService\UserController@userBindView');
+//绑定页面
+Route::get('userBind', 'HrService\UserController@userBindView');
 //个人用户
-Route::group(['prefix' => "user",'middleware' => ['wechat.auth']], function(){
+Route::group(['prefix' => "user", 'middleware' => ['wechat.auth']], function () {
 
-    Route::group(['prefix' => "view",'middleware' => []], function(){
+    Route::group(['prefix' => "view", 'middleware' => []], function () {
         // 个人首页
-        Route::get('home','HrService\UserController@userHomeView');
+        Route::get('home', 'HrService\UserController@userHomeView');
         // 个人信息
-        Route::get('userinfo','HrService\UserController@useInfoView');
+        Route::get('userinfo', 'HrService\UserController@useInfoView');
         //我的部门页面
-        Route::get('mydepartment','HrService\UserController@myDepartmentView');
+        Route::get('mydepartment', 'HrService\UserController@myDepartmentView');
 
     });
 
@@ -53,67 +78,59 @@ Route::group(['prefix' => "user",'middleware' => ['wechat.auth']], function(){
 /**
  * 考勤
  */
-Route::group(['prefix' => "attendance",'middleware' => ['wechat.auth']], function(){
+Route::group(['prefix' => "attendance", 'middleware' => ['wechat.auth']], function () {
 
     //访问页面
-    Route::group(['prefix' => "view",'middleware' => []], function(){
+    Route::group(['prefix' => "view", 'middleware' => []], function () {
         //我的日历
-        Route::get('canlendar','HrService\AttendanceController@myCanlendarView');
+        Route::get('canlendar', 'HrService\AttendanceController@myCanlendarView');
         //考勤汇总
-        Route::get('summary','HrService\AttendanceController@attendanceSummaryView');
+        Route::get('summary', 'HrService\AttendanceController@attendanceSummaryView');
         //考勤详细信息
-        Route::get('detail','HrService\AttendanceController@attendanceDeatilView');
+        Route::get('detail', 'HrService\AttendanceController@attendanceDeatilView');
         //总考勤排名
-        Route::get('attendance-list','HrService\AttendanceController@attendanceListView');
+        Route::get('attendance-list', 'HrService\AttendanceController@attendanceListView');
         //加班排名
-        Route::get('overtime-list','HrService\AttendanceController@overTimeRankingView');
+        Route::get('overtime-list', 'HrService\AttendanceController@overTimeRankingView');
         //请假排名
-        Route::get('leave-list','HrService\AttendanceController@leaveRankingView');
+        Route::get('leave-list', 'HrService\AttendanceController@leaveRankingView');
         //考勤异常排名
-        Route::get('attend-error','HrService\AttendanceController@attendRankingView');
+        Route::get('attend-error', 'HrService\AttendanceController@attendRankingView');
         //考勤确认页面
-        Route::get('attendance-check','HrService\AttendanceController@attendanceCheckView');
+        Route::get('attendance-check', 'HrService\AttendanceController@attendanceCheckView');
     });
 
 });
 
-Route::get('password/view/forget-password','HrService\SalaryController@forgetPasswordView');
+Route::get('password/view/forget-password', 'HrService\SalaryController@forgetPasswordView');
 
 //薪资
-Route::group(['prefix' => "salary",'middleware' => ['cut.database','wechat.auth']], function(){
+Route::group(['prefix' => "salary", 'middleware' => ['cut.database', 'wechat.auth']], function () {
     //页面
-    Route::group(['prefix' => "view",'middleware' => []], function(){
+    Route::group(['prefix' => "view", 'middleware' => []], function () {
         //薪酬查询
-        Route::get('staff-salary','HrService\SalaryController@staffsalaryView');
+        Route::get('staff-salary', 'HrService\SalaryController@staffsalaryView');
         //调薪历史
-        Route::get('salary-query','HrService\SalaryController@salaryQueryView');
+        Route::get('salary-query', 'HrService\SalaryController@salaryQueryView');
         //薪酬详细
-        Route::get('salary-detail','HrService\SalaryController@salaryDetailView');
+        Route::get('salary-detail', 'HrService\SalaryController@salaryDetailView');
         //调薪更多页面
-        Route::get('query-more','HrService\SalaryController@queryMoreView');
+        Route::get('query-more', 'HrService\SalaryController@queryMoreView');
 
 
     });
 });
 //节假日
-Route::group(['prefix' => "holiday",'middleware' => ['cut.database','wechat.auth']], function(){
+Route::group(['prefix' => "holiday", 'middleware' => ['cut.database', 'wechat.auth']], function () {
     //页面
-    Route::group(['prefix' => "view",'middleware' => []], function(){
+    Route::group(['prefix' => "view", 'middleware' => []], function () {
         //节假日汇总
-        Route::get('all','HrService\HolidayController@holidayAllView');
+        Route::get('all', 'HrService\HolidayController@holidayAllView');
         //节假日详情
-        Route::get('detail','HrService\HolidayController@holidayDetailView');
-
+        Route::get('detail', 'HrService\HolidayController@holidayDetailView');
 
     });
 
-});
-
-//获取默认（员工服务agentid 、给hcp调用消息服务使用）
-Route::get('company/agentid', function(){
-    $companyid = request('companyid',7);
-    $company = config('wechat.workchat' . $companyid);
-    return $company['default_agent'];
 });
 
 

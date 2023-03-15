@@ -2,8 +2,8 @@
 
 namespace App\Models\Hr;
 
-use Illuminate\Database\Eloquent\Model;
 use Config;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class Salary extends Model

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Traits;
 
 use Illuminate\Support\Facades\DB;
@@ -9,9 +10,8 @@ use Illuminate\Support\Facades\DB;
  * @author hsiaowei
  * @date  2023/3/6
  */
-
-
-trait CommonTrait{
+trait CommonTrait
+{
 
     /**
      * 返回失败的json数据
@@ -57,35 +57,37 @@ trait CommonTrait{
      * ];
      *
      */
-    public function success( $code = 0, $message=false,$data = [])
+    public function success($code = 0, $message = false, $data = [])
     {
         $jsonArray ['code'] = $code;
-        $jsonArray ['msg'] = $message?:$this->getErrorMsg($code);
-        empty($data) ?:  $jsonArray ['data'] = $data;
+        $jsonArray ['msg'] = $message ?: $this->getErrorMsg($code);
+        empty($data) ?: $jsonArray ['data'] = $data;
         return response()->json($jsonArray);
     }
+
     /**
      * 全局返回码
      * @param $errcode
      */
-    public static function getErrorMsg( $errcode=0 )
+    public static function getErrorMsg($errcode = 0)
     {
-        $msg= array(
+        $msg = array(
             0 => '请求成功',
             1 => '请求失败',
-            -1=>'系统繁忙，此时请开发者稍候再试',
-            2001=>'二维码有误！',
-            3001=> '账号异常，请联系管理员',
-            4001=>'操作失败',
-            4002=>'不合法的请求',
-            4003=>'参数有误',
-            4004=>'数据重复',
-            4005=>'暂不允许操作',
-            -5000=> '当前系统错误，请重试',
+            -1 => '系统繁忙，此时请开发者稍候再试',
+            2001 => '二维码有误！',
+            3001 => '账号异常，请联系管理员',
+            4001 => '操作失败',
+            4002 => '不合法的请求',
+            4003 => '参数有误',
+            4004 => '数据重复',
+            4005 => '暂不允许操作',
+            -5000 => '当前系统错误，请重试',
 
         );
         return $msg[$errcode];
     }
+
     /**
      * 二维数组排序
      * @param array $arr 需要排序的二维数组
@@ -101,7 +103,7 @@ trait CommonTrait{
                 $arrSort[$key][$uniqid] = $value;
             }
         }
-        if(count($array)>0){
+        if (count($array) > 0) {
             array_multisort($arrSort[$field], constant($sort), $array);
         }
 
@@ -138,8 +140,8 @@ trait CommonTrait{
      */
     public function object_to_array($stdclassobject)
     {
-        $array =array();
-        if(count($stdclassobject)>0){
+        $array = array();
+        if (count($stdclassobject) > 0) {
             $_array = is_object($stdclassobject) ? get_object_vars($stdclassobject) : $stdclassobject;
             foreach ($_array as $key => $value) {
                 $value = (is_array($value) || is_object($value)) ? $this->object_to_array($value) : $value;
@@ -155,11 +157,11 @@ trait CommonTrait{
      */
     public function encryptString($str)
     {
-        $sql="SELECT TO_BASE64(AES_ENCRYPT('".$str."','wechat'))";
-        $search ="TO_BASE64(AES_ENCRYPT('".$str."','wechat'))";
+        $sql = "SELECT TO_BASE64(AES_ENCRYPT('" . $str . "','wechat'))";
+        $search = "TO_BASE64(AES_ENCRYPT('" . $str . "','wechat'))";
 
-        $result=   DB::select(DB::raw($sql));
-        $result= $this->object_to_array($result);
+        $result = DB::select(DB::raw($sql));
+        $result = $this->object_to_array($result);
 
         return $result[0][$search];
     }
@@ -167,57 +169,57 @@ trait CommonTrait{
     /**
      *  字符串解密
      */
-    public function decryptString($str,$key)
+    public function decryptString($str, $key)
     {
-        $sql= "SELECT AES_DECRYPT(FROM_BASE64('".$str."'),'".$key."')";
-        ;
-        $search= "AES_DECRYPT(FROM_BASE64('".$str."'),'".$key."')";
-        $result=   DB::select(DB::raw($sql));
+        $sql = "SELECT AES_DECRYPT(FROM_BASE64('" . $str . "'),'" . $key . "')";;
+        $search = "AES_DECRYPT(FROM_BASE64('" . $str . "'),'" . $key . "')";
+        $result = DB::select(DB::raw($sql));
 
-        $result= $this->object_to_array($result);
+        $result = $this->object_to_array($result);
 
-        if($result){
-            foreach ($result[0] as $item){
-                $res=$item;
+        if ($result) {
+            foreach ($result[0] as $item) {
+                $res = $item;
             }
-        }else{
-            $res='';
+        } else {
+            $res = '';
         }
 
         return $res;
     }
+
     /**
      *  部门分类并且计算工龄
      */
     public function departClassify($empRes)
     {
-        $depData=array();
-        $depArr =array();
+        $depData = array();
+        $depArr = array();
         //计算工龄  并且根据部门分类
-        foreach ($empRes as$k=> $item) {
-            if($item['emp_outdate']==''){
-                $year=date('Y')-date('Y',strtotime($item['emp_indate']));
-                $month=date('m')-date('m',strtotime($item['emp_indate']));
-            }else{
-                $year=date('Y',strtotime($item['emp_outdate']))-date('Y',strtotime($item['emp_indate']));
-                $month=date('m',strtotime($item['emp_outdate']))-date('m',strtotime($item['emp_indate']));
+        foreach ($empRes as $k => $item) {
+            if ($item['emp_outdate'] == '') {
+                $year = date('Y') - date('Y', strtotime($item['emp_indate']));
+                $month = date('m') - date('m', strtotime($item['emp_indate']));
+            } else {
+                $year = date('Y', strtotime($item['emp_outdate'])) - date('Y', strtotime($item['emp_indate']));
+                $month = date('m', strtotime($item['emp_outdate'])) - date('m', strtotime($item['emp_indate']));
             }
-            $item['years']=(string)round((12*$year+$month)/12,1);
+            $item['years'] = (string)round((12 * $year + $month) / 12, 1);
 
             //判断部门数组是否已经存在此部门，存在就进入对应数组，不存在就加入数据
-            if(in_array($item['emp_dept'],$depArr)){
-                $key=array_search($item['emp_dept'], $depArr);
-                $depData[$key]['emp_count']+=1;
-                $depData[$key]['deptinfo'][]=$item;
+            if (in_array($item['emp_dept'], $depArr)) {
+                $key = array_search($item['emp_dept'], $depArr);
+                $depData[$key]['emp_count'] += 1;
+                $depData[$key]['deptinfo'][] = $item;
 
-            }else{
-                $addArr=[];
-                $depArr[]=$item['emp_dept'];
-                $addArr[]=$item;
-                $depData[]=[
-                    'deptname'=>$item['emp_dept'],
-                    'emp_count'=>1,
-                    'deptinfo'=>$addArr,
+            } else {
+                $addArr = [];
+                $depArr[] = $item['emp_dept'];
+                $addArr[] = $item;
+                $depData[] = [
+                    'deptname' => $item['emp_dept'],
+                    'emp_count' => 1,
+                    'deptinfo' => $addArr,
                 ];
             }
 
@@ -228,12 +230,12 @@ trait CommonTrait{
     /**
      * 计算数组对象中某个字段的累计值
      */
-    public function getArrayObjSum($arr,$key)
+    public function getArrayObjSum($arr, $key)
     {
-        $result ='0';
-        if($arr){
-            foreach ( $arr as $item) {
-                $result+=$item-> $key;
+        $result = '0';
+        if ($arr) {
+            foreach ($arr as $item) {
+                $result += $item->$key;
             }
         }
         return (string)$result;
@@ -248,17 +250,17 @@ trait CommonTrait{
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function dealJsonRequestParams($jsondata,$params=[])
+    public function dealJsonRequestParams($jsondata, $params = [])
     {
-        if($jsondata){
+        if ($jsondata) {
             foreach ($params as $item) {
 
-                if(!array_key_exists($item,$jsondata)){
-                    throw new \Exception('缺少参数'.$item);
+                if (!array_key_exists($item, $jsondata)) {
+                    throw new \Exception('缺少参数' . $item);
                     return false;
                 }
             }
-        }else{
+        } else {
             throw new \Exception('缺少json参数');
             return false;
         }
@@ -275,11 +277,11 @@ trait CommonTrait{
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function dealObjectToArrayByKey($object,$key)
+    public function dealObjectToArrayByKey($object, $key)
     {
-        $result=array();
+        $result = array();
         foreach ($object as $item) {
-            $result[$item[$key]]=$item;
+            $result[$item[$key]] = $item;
 
         }
 

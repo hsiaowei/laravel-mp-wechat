@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     //
-    protected $table='wx_personal_information_page';
+    protected $table = 'wx_personal_information_page';
 
 
     /**
@@ -19,17 +19,17 @@ class User extends Model
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function getUserInfo($companyid,$emp_no,$select='*')
+    public function getUserInfo($companyid, $emp_no, $select = '*')
     {
-     return  $this->select($select)->where('company_id','=',$companyid)->where('emp_no','=',$emp_no)->first();
+        return $this->select($select)->where('company_id', '=', $companyid)->where('emp_no', '=', $emp_no)->first();
     }
 
     /**
      * 获取用户信息
      */
-    public function getUserInfoByIphone($iphone,$select='*')
+    public function getUserInfoByIphone($iphone, $select = '*')
     {
-        return  $this->select($select)->where('emp_phone','=',$iphone)->first();
+        return $this->select($select)->where('emp_phone', '=', $iphone)->first();
     }
 
     /**
@@ -41,12 +41,12 @@ class User extends Model
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function getStaffDetailInfo($companyid,$departUsers)
+    public function getStaffDetailInfo($companyid, $departUsers)
     {
-        $empRes =$this->select('emp_no','emp_name','emp_indate','emp_outdate','emp_dept','emp_title')
-            ->where('company_id',$companyid)
-            ->whereIn('emp_no',$departUsers)
-            ->orderby('emp_no','asc')
+        $empRes = $this->select('emp_no', 'emp_name', 'emp_indate', 'emp_outdate', 'emp_dept', 'emp_title')
+            ->where('company_id', $companyid)
+            ->whereIn('emp_no', $departUsers)
+            ->orderby('emp_no', 'asc')
             ->get()
             ->toArray();
 

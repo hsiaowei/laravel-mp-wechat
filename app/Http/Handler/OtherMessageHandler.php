@@ -19,7 +19,7 @@ class OtherMessageHandler implements EventHandlerInterface
     public function handle($payload = [])
     {
         // Message::DEVICE_EVENT | Message::DEVICE_TEXT | Message::TEXT_CARD | Message::TRANSFER
-        Log::info("其他消息",$payload);
-        return '收到其他类型消息';
+        Log::info("其他消息", $payload);
+        //return '收到其他类型消息';
     }
 }

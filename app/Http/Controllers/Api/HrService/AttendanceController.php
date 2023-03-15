@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api\HrService;
 
 
-use Illuminate\Http\Request;
-use App\Models\Hr\User;
+use App\Http\Controllers\HrService\HrBaseController;
+use App\Models\Hr\AttendanceCheck;
 use App\Models\Hr\Canlendar;
 use App\Models\Hr\Leader;
-use App\Models\Hr\AttendanceCheck;
+use App\Models\Hr\User;
+use Illuminate\Http\Request;
 use Log;
-use App\Http\Controllers\HrService\HrBaseController;
 
 class AttendanceController extends HrBaseController
 {

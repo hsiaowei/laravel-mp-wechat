@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\TrimStrings as Middleware;
-use Illuminate\Http\Response;
 
 class TrimStrings extends Middleware
 {

@@ -16,8 +16,8 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-      	\App\Http\Middleware\TrimStrings::class,
-           \Illuminate\Session\Middleware\StartSession::class,
+        \App\Http\Middleware\TrimStrings::class,
+        \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
     ];
@@ -41,7 +41,6 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:1000,1',
             'bindings',
-            'debug',
         ],
     ];
 
@@ -61,10 +60,9 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
         // added for get WeChat User Information
-        'wechat.auth'=> \App\Http\Middleware\WeChatAuth::class,
-        'cut.database'=> \App\Http\Middleware\CutDatabase::class,
+        'wechat.auth' => \App\Http\Middleware\WeChatAuth::class,
+        'cut.database' => \App\Http\Middleware\CutDatabase::class,
         'auth.jwt' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
-        'debug' => \App\Http\Middleware\ProdDebug::class,
 
     ];
 }

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class WxShiftinfo extends Model
 {
     //
-    protected $table ='wx_shift_info';
+    protected $table = 'wx_shift_info';
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\WorkWechat;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class TagController extends WechatBaseController
 {
@@ -24,18 +23,19 @@ class TagController extends WechatBaseController
     {
         $tag_name = $request->tagname;
         $tag_id = $request->tagid;
-        return $this->responseWeChat($this->tag->create($tag_name,$tag_id));
+        return $this->responseWeChat($this->tag->create($tag_name, $tag_id));
     }
+
     /**
      * update tag info
-     * @param  Request $request 
-     * @return JSON           
+     * @param Request $request
+     * @return JSON
      */
     public function updateTag(Request $request)
     {
         $tag_name = $request->tagname;
         $tag_id = $request->tagid;
-        return $this->responseWeChat($this->tag->update($tag_id,$tag_name));
+        return $this->responseWeChat($this->tag->update($tag_id, $tag_name));
     }
 
     public function deleteTagById($tag_id)
@@ -60,13 +60,14 @@ class TagController extends WechatBaseController
 
     public function addUserToTag(Request $request)
     {
-        $user_list = explode('|',$request->userlist);
-        return $this->responseWeChat($this->tag->tagUsers($request->tagid,$user_list));
+        $user_list = explode('|', $request->userlist);
+        return $this->responseWeChat($this->tag->tagUsers($request->tagid, $user_list));
     }
+
     public function removeUserFromTag(Request $request)
     {
-        $user_list = explode('|',$request->userlist);
-        return $this->responseWeChat($this->tag->untagUsers((int)$request->tagid,$user_list));
+        $user_list = explode('|', $request->userlist);
+        return $this->responseWeChat($this->tag->untagUsers((int)$request->tagid, $user_list));
     }
 
     public function getDepartmentsByTag(Request $request)
@@ -76,13 +77,14 @@ class TagController extends WechatBaseController
 
     public function addDepartmentToTag(Request $request)
     {
-        $dept_list = explode('|',$request->partylist);
-        return $this->responseWeChat($this->tag->tagDepartments($request->tagid,$dept_list));
+        $dept_list = explode('|', $request->partylist);
+        return $this->responseWeChat($this->tag->tagDepartments($request->tagid, $dept_list));
     }
+
     public function removeDepartmentFromTag(Request $request)
     {
-        $dept_list = explode('|',$request->partylist);
-        return $this->responseWeChat($this->tag->untagDepartments((int)$request->tagid,$dept_list));
+        $dept_list = explode('|', $request->partylist);
+        return $this->responseWeChat($this->tag->untagDepartments((int)$request->tagid, $dept_list));
     }
 
 }

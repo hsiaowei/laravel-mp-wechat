@@ -4,19 +4,13 @@ namespace App\Http\Controllers\HrService;
 
 
 use Illuminate\Http\Request;
-use App\Models\Hr\User;
-use Illuminate\Support\Facades\Cache;
-
-use App\Http\Controllers\HrService\HrBaseController;
-use Illuminate\Support\Facades\Session;
 
 class UserController extends HrBaseController
 {
 
     public function __construct(Request $request)
     {
-	
-			
+
 
     }
 
@@ -74,12 +68,12 @@ class UserController extends HrBaseController
      */
     public function myDepartmentView(Request $request)
     {
-        $emp_no= session('empNo');
-        $companyid= session('companyId');
-        $data=[
-            'userId'=> $emp_no,
-            'companyId'=>$companyid ,
-          	'staff_no'=>$request->get('staff_no')
+        $emp_no = session('empNo');
+        $companyid = session('companyId');
+        $data = [
+            'userId' => $emp_no,
+            'companyId' => $companyid,
+            'staff_no' => $request->get('staff_no')
         ];
         return view('Department.myDepartment')->with($data);
     }

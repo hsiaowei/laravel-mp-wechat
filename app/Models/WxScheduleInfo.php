@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class WxScheduleInfo extends Model
 {
     //
-    protected  $table='wx_emp_schedule_info';
+    protected $table = 'wx_emp_schedule_info';
 }

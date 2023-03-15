@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class HolidayAll extends Model
 {
     //
-    protected $table='wx_all_holiday';
-    public $timestamps		=	true;
-    protected $primaryKey	=	'id';
-    public $incrementing	=	true;
+    protected $table = 'wx_all_holiday';
+    public $timestamps = true;
+    protected $primaryKey = 'id';
+    public $incrementing = true;
     /**
      * The attributes that are mass assignable.
      *
@@ -29,16 +29,16 @@ class HolidayAll extends Model
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function getUserSalaryDetail($companyid,$emp_no,$month_no)
+    public function getUserSalaryDetail($companyid, $emp_no, $month_no)
     {
-     $selectArr =['emp_pay_type', 'emp_salary', 'emp_salary', 'emp_salary_fix','emp_salary_tax','emp_salary_temp','emp_salary_ov','emp_salary_abs','emp_salary_insure','emp_salary_b','emp_salary_bs'];
+        $selectArr = ['emp_pay_type', 'emp_salary', 'emp_salary', 'emp_salary_fix', 'emp_salary_tax', 'emp_salary_temp', 'emp_salary_ov', 'emp_salary_abs', 'emp_salary_insure', 'emp_salary_b', 'emp_salary_bs'];
 
-     $result=  $this->select($selectArr)->where('company_id','=',$companyid)->where('emp_no','=',$emp_no)->where('month_no','=',$month_no)->first();
+        $result = $this->select($selectArr)->where('company_id', '=', $companyid)->where('emp_no', '=', $emp_no)->where('month_no', '=', $month_no)->first();
 
-        if($result){
-            $result=  $result  ->toArray();
-        }else{
-            $result=[];
+        if ($result) {
+            $result = $result->toArray();
+        } else {
+            $result = [];
         }
 
         return $result;

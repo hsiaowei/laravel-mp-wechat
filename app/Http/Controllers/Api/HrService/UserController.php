@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Api\HrService;
 
+use App\Http\Controllers\Api\WorkWechat\WxController;
 use App\Http\Controllers\Controller;
+use App\Models\Hr\Leader;
+use App\Models\Hr\User;
 use App\Models\WxVerifyCode;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Models\Hr\User;
-use App\Models\Hr\Leader;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Api\WorkWechat\WxController;
 use Illuminate\Support\Facades\Session;
 use Log;
 
@@ -108,18 +108,18 @@ class UserController extends Controller
         // 处理绑定信息
         $empUser = $this->user->getUserInfoByIphone($iphone);
         if ($empUser) {
-            if (empty($empUser['openid'])){
+            if (empty($empUser['openid'])) {
                 // 保存用户信息
-                Session::put('wechat_user_info',$empUser);
+                Session::put('wechat_user_info', $empUser);
                 Session::put('companyId', $empUser['company_id']);
                 Session::put('empNo', $empUser['emp_no']);
                 $wechatUser = session('wechat_user');
-                $empUser->auth=json_encode($wechatUser);
-                $empUser->openid=$wechatUser['id'];
-                $empUser->auth_at= date('Y-m-d H:i:s');
+                $empUser->auth = json_encode($wechatUser);
+                $empUser->openid = $wechatUser['id'];
+                $empUser->auth_at = date('Y-m-d H:i:s');
                 $empUser->save();
                 $result = $this->success(0, '绑定成功！');
-            }else{
+            } else {
                 $result = $this->success(1, '当前用户被绑定，请联系管理员解绑!');
             }
         } else {
@@ -142,7 +142,7 @@ class UserController extends Controller
     public function getUserInfo(Request $request)
     {
         $companyId = session('companyId');
-        $emp_no = $request->get('emp_no',session('empNo'));
+        $emp_no = $request->get('emp_no', session('empNo'));
         //查询信息
         $userinfo = $this->user->getUserInfo($companyId, $emp_no);
 

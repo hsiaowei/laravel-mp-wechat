@@ -2,13 +2,13 @@
 
 namespace App\Libraries\sms;
 
+use Log;
 use TencentCloud\Common\Credential;
 use TencentCloud\Common\Exception\TencentCloudSDKException;
 use TencentCloud\Common\Profile\ClientProfile;
 use TencentCloud\Common\Profile\HttpProfile;
 use TencentCloud\Sms\V20210111\Models\SendSmsRequest;
 use TencentCloud\Sms\V20210111\SmsClient;
-use Log;
 
 /**
  * 腾讯云发送短信服务
@@ -65,14 +65,15 @@ class TencentCloudSms implements Sms
             // 通过client对象调用SendSms方法发起请求。注意请求方法名与请求对象是对应的
             // 返回的resp是一个SendSmsResponse类的实例，与请求对象对应
             $resp = $client->SendSms($req);
-            Log::info("腾讯云SMS消息成功>>> 发送号码:$iphone,发送验证码:$code,返回结果:".$resp->toJsonString());
+            Log::info("腾讯云SMS消息成功>>> 发送号码:$iphone,发送验证码:$code,返回结果:" . $resp->toJsonString());
             return $resp;
         } catch (TencentCloudSDKException $e) {
-            Log::info("腾讯云SMS消息异常>>> 发送号码:$iphone,发送验证码:$code,异常原因:". $e);
+            Log::info("腾讯云SMS消息异常>>> 发送号码:$iphone,发送验证码:$code,异常原因:" . $e);
         }
     }
 
-    public function demo(){
+    public function demo()
+    {
         try {
             /* 必要步骤：
              * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
@@ -149,8 +150,7 @@ class TencentCloudSms implements Sms
              * [UnsupportedOperation.ContainDomesticAndInternationalPhoneNumber](https://cloud.tencent.com/document/product/382/9558#.E7.9F.AD.E4.BF.A1.E5.8F.91.E9.80.81.E6.8F.90.E7.A4.BA.EF.BC.9Aunsupportedoperation.containdomesticandinternationalphonenumber-.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.EF.BC.9F)
              * 更多错误，可咨询[腾讯云助手](https://tccc.qcloud.com/web/im/index.html#/chat?webAppId=8fa15978f85cb41f7e2ea36920cb3ae1&title=Sms)
              */
-        }
-        catch(TencentCloudSDKException $e) {
+        } catch (TencentCloudSDKException $e) {
             echo $e;
         }
     }

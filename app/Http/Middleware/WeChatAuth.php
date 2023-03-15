@@ -2,12 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\Hr\User;
 use Closure;
 use EasyWeChat\Factory;
-use Illuminate\Http\Response;
-use Log;
 use Illuminate\Support\Facades\Session;
+use Log;
 
 
 class WeChatAuth
@@ -26,12 +24,12 @@ class WeChatAuth
     public function handle($request, Closure $next)
     {
         // 微信浏览器验证
-        /*if (!strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')) {
+        if (!strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')) {
             //return new Response('Forbidden: 请在微信客户端打开链接', 403);
             return Response()->view("Layout.WechatError");
-        }*/
+        }
         // 跳转地址
-        $callback_uri = $_SERVER['APP_URL'] . '/callback?uri=' . urlencode($request->fullUrl());
+        $callback_uri = $_SERVER['APP_URL'] . '/wechat/callback?uri=' . urlencode($request->fullUrl());
 
         // 获取用户信息
         $empUser = Session::get("wechat_user_info", []);
@@ -43,13 +41,13 @@ class WeChatAuth
             //Log::info('auth>wechat_user:' . json_encode($wechatUser));
             // 未授权
             if (empty($wechatUser)) {
-                Log::info('未授权跳转');
+                //Log::info('未授权跳转');
                 // 配置信息
                 $config = config('wechat.official_account.default');
-                /* $config['oauth'] = [
-                     'scopes' => ['snsapi_userinfo'],
-                     'callback' => $callback_uri,
-                 ];*/
+//                $config['oauth'] = [
+//                     'scopes' => ['snsapi_userinfo'],
+//                     'callback' => $callback_uri,
+//                 ];
                 $app = Factory::officialAccount($config);
                 //dd($callback_uri,$request->getBaseUrl(),$request);
                 //Log::info('auth>callback_uri:' . $callback_uri);

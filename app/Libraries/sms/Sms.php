@@ -18,6 +18,6 @@ interface Sms
      * @param ...$_
      * @return mixed
      */
-    public static function sendCode(string $iphone, string $code,  ...$_);
+    public static function sendCode(string $iphone, string $code, ...$_);
 
 }

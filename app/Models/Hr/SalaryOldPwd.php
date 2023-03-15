@@ -3,24 +3,24 @@
 namespace App\Models\Hr;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class SalaryOldPwd extends Model
 {
     //
-    protected $table='wx_personal_pwd';
+    protected $table = 'wx_personal_pwd';
 
-    public $timestamps		=	true;
-    protected $primaryKey	=	'id';
-    public $incrementing	=	true;
+    public $timestamps = true;
+    protected $primaryKey = 'id';
+    public $incrementing = true;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id', 'emp_no' ,'company_id', 'old_pwd', 'new_pwd', 'uuid', 'created_at', 'updated_at'
+        'id', 'emp_no', 'company_id', 'old_pwd', 'new_pwd', 'uuid', 'created_at', 'updated_at'
     ];
+
     /**
      * 查询用户的老密码是否正确
      *  getCanlendarInfo
@@ -30,9 +30,9 @@ class SalaryOldPwd extends Model
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function getUserPwdInfo($companyid,$emp_no,$oldpwd)
+    public function getUserPwdInfo($companyid, $emp_no, $oldpwd)
     {
-     return   $this->select('id')->where('company_id','=',$companyid)->where('emp_no','=',$emp_no)->where('old_pwd','=',$oldpwd)->first();
+        return $this->select('id')->where('company_id', '=', $companyid)->where('emp_no', '=', $emp_no)->where('old_pwd', '=', $oldpwd)->first();
 
     }
 

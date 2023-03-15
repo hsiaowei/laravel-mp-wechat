@@ -3,14 +3,8 @@
 namespace App\Http\Controllers\HrService;
 
 
-use App\Models\Hr\Salaryp;
-use Illuminate\Http\Request;
-use App\Models\Hr\User;
-use Illuminate\Support\Facades\Cache;
 use App\Models\Hr\SalaryPwd;
-use App\Models\Hr\SalaryOldPwd;
-use App\Models\Hr\Salary;
-use App\Http\Controllers\HrService\HrBaseController;
+use Illuminate\Http\Request;
 
 class SalaryController extends HrBaseController
 {
@@ -22,6 +16,7 @@ class SalaryController extends HrBaseController
     {
 
     }
+
     /**
      * 调薪历史页面
      *  salaryQuery
@@ -32,17 +27,18 @@ class SalaryController extends HrBaseController
      * @return array 返回类型
      *
      */
-    public function salaryQueryView(Request $request){
+    public function salaryQueryView(Request $request)
+    {
 
-        $emp_no=  session('empNo');
-        $companyid= session('companyId');
-        $data=[
-            'userId'=> $emp_no,
-            'companyId'=>$companyid,
+        $emp_no = session('empNo');
+        $companyid = session('companyId');
+        $data = [
+            'userId' => $emp_no,
+            'companyId' => $companyid,
         ];
-        $salaryPwd=new SalaryPwd();
+        $salaryPwd = new SalaryPwd();
         //查询是否修改过密码（第一次登陆）  Y:第一次登陆  N不是第一次登陆
-        $res= $salaryPwd->getUserSalaryPwd($companyid,$emp_no);
+        $res = $salaryPwd->getUserSalaryPwd($companyid, $emp_no);
         /*if(count($res)==0){
             $data['isfirstlogin']='Y';
         }else{
@@ -52,6 +48,7 @@ class SalaryController extends HrBaseController
 
         return view('Salary.salaryQuery')->with($data);
     }
+
     /**
      * 酬薪查询页面
      *  staffsalary
@@ -62,24 +59,26 @@ class SalaryController extends HrBaseController
      * @return array 返回类型
      *
      */
-    public function staffsalaryView(Request $request){
+    public function staffsalaryView(Request $request)
+    {
 
-        $emp_no=  session('empNo');
-        $companyid= session('companyId');
+        $emp_no = session('empNo');
+        $companyid = session('companyId');
 
-        $data=[
-            'userId'=> $emp_no,
-            'companyId'=>$companyid,
+        $data = [
+            'userId' => $emp_no,
+            'companyId' => $companyid,
         ];
 
-        $salaryPwd=new SalaryPwd();
+        $salaryPwd = new SalaryPwd();
         //查询是否修改过密码（第一次登陆）  Y:第一次登陆  N不是第一次登陆
-        $res= $salaryPwd->getUserSalaryPwd($companyid,$emp_no);
+        $res = $salaryPwd->getUserSalaryPwd($companyid, $emp_no);
 
         $data['isfirstlogin'] = $this->checkEmpty($res);
 
         return view('Salary.staffSalary')->with($data);
     }
+
     /**
      * 酬薪详情页面
      *  salaryDetail
@@ -90,20 +89,21 @@ class SalaryController extends HrBaseController
      * @return array 返回类型
      *
      */
-    public function salaryDetailView(Request $request){
+    public function salaryDetailView(Request $request)
+    {
 
 
-        $emp_no=  session('empNo');
-        $companyid= session('companyId');
+        $emp_no = session('empNo');
+        $companyid = session('companyId');
 
-        $data=[
-            'userId'=>$emp_no,
-            'companyId'=>$companyid
+        $data = [
+            'userId' => $emp_no,
+            'companyId' => $companyid
         ];
 
-        $salaryPwd=new SalaryPwd();
+        $salaryPwd = new SalaryPwd();
         //查询是否修改过密码（第一次登陆）  Y:第一次登陆  N不是第一次登陆
-        $res= $salaryPwd->getUserSalaryPwd($companyid,$emp_no);
+        $res = $salaryPwd->getUserSalaryPwd($companyid, $emp_no);
 
         $data['isfirstlogin'] = $this->checkEmpty($res);
 
@@ -124,23 +124,24 @@ class SalaryController extends HrBaseController
     {
 
 
-        $emp_no=  session('empNo');
-        $companyid= session('companyId');
+        $emp_no = session('empNo');
+        $companyid = session('companyId');
 
-        $data=[
-            'userId'=>$emp_no,
-            'companyId'=>$companyid,
-            'staff_no'=>$request->get('staff_no')
+        $data = [
+            'userId' => $emp_no,
+            'companyId' => $companyid,
+            'staff_no' => $request->get('staff_no')
         ];
 
-        $salaryPwd=new SalaryPwd();
+        $salaryPwd = new SalaryPwd();
         //查询是否修改过密码（第一次登陆）  Y:第一次登陆  N不是第一次登陆
-        $res= $salaryPwd->getUserSalaryPwd($companyid,$emp_no);
+        $res = $salaryPwd->getUserSalaryPwd($companyid, $emp_no);
 
         $data['isfirstlogin'] = $this->checkEmpty($res);
 
         return view('Salary.salaryMore')->with($data);
     }
+
     /**
      * 忘记密码页面
      *  queryMoreView
@@ -152,12 +153,12 @@ class SalaryController extends HrBaseController
      */
     public function forgetPasswordView(Request $request)
     {
-        $emp_no=  session('empNo');
-        $companyid= session('companyId');
-        $data=[
-            'userId'=>$emp_no,
-            'companyId'=>$companyid,
-            'staff_no'=>$request->get('staff_no')
+        $emp_no = session('empNo');
+        $companyid = session('companyId');
+        $data = [
+            'userId' => $emp_no,
+            'companyId' => $companyid,
+            'staff_no' => $request->get('staff_no')
         ];
 
 
@@ -171,6 +172,6 @@ class SalaryController extends HrBaseController
      */
     public function checkEmpty($res): string
     {
-        return (empty($res) || count($res)==0)?"Y":"N";
+        return (empty($res) || count($res) == 0) ? "Y" : "N";
     }
 }

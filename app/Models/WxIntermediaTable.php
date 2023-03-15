@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class WxIntermediaTable extends Model
 {
     //
-    protected $table='wx_intermediate_table';
+    protected $table = 'wx_intermediate_table';
 }

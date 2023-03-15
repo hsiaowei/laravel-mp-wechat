@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class UserCredentials extends Model
 {
-        protected $fillable =[
-            "credentialstype",
-            "credentialsno",
-        ]
+    protected $fillable = [
+        "credentialstype",
+        "credentialsno",
+    ]
 }

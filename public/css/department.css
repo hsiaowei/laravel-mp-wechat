@@ -440,7 +440,7 @@
     width: 90%;
     background:rgba(255,255,255,0);
     overflow-y: auto;
-    height: 90%;
+    height: auto;
 }
 .contract_mes,.id_card_mes,.bank_card_mes{
     background: #D3D3D3;

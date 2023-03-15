@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Api\WorkWechat;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class DepartmentController extends WechatBaseController
 {
-	protected $department;
+    protected $department;
 
     public function __construct()
     {
-    	parent::__construct();
-    	$this->department = $this->workWeChat->agent('contacts')->department;
+        parent::__construct();
+        $this->department = $this->workWeChat->agent('contacts')->department;
     }
 
 
@@ -49,7 +48,7 @@ class DepartmentController extends WechatBaseController
      */
     public function getDepartmentById($department_id)
     {
-        return $this->responseWeChat($this->department->list(['id'=>$department_id]));
+        return $this->responseWeChat($this->department->list(['id' => $department_id]));
     }
 
     /**

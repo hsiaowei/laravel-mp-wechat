@@ -231,8 +231,10 @@
                     var result = res.data.data;
                     that.toymd = result.month;
                     var today = result.month;
-                    that.slots[0].defaultIndex = today.substring(0,4)-that.slots[0].values[0];
-                    that.slots[2].defaultIndex = today.substring(5,7).replace(/\b(0+)/gi,"") - 1;
+                    //that.slots[0].defaultIndex = today.substring(0,4)-that.slots[0].values[0];
+                    //that.slots[2].defaultIndex = today.substring(5,7).replace(/\b(0+)/gi,"") - 1;
+                    that.slots[0].defaultIndex = that.slots[0].values.indexOf(that.toymd.substring(0, 4));
+                    that.slots[2].defaultIndex = that.toymd.substring(5, 7).replace(/\b(0+)/gi, "") - 1;
 
                     that.ifData= (res.data.code==0&&result['salary_time'])?true:false;
                     that.attends =[];
