@@ -56,8 +56,8 @@ html,body{
 .mint-cell-wrapper{
     padding: 0 0.3rem;
     background-size: 0 0;
-    height: 0.6rem;
-    line-height: 0.6rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
     font-size: 0.28rem;
 }
 .mint-cell{

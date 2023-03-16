@@ -27,6 +27,10 @@ Route::group(['prefix' => "wechat"], function () {
 
 Route::group(['prefix' => "tools"], function () {
 
+    Route::get('/session', function () {
+        return '公司别：'.session('companyId').'，工号：'.session('empNo').',所有信息：'.json_encode(session('wechat_user_info'));
+    });
+
     Route::get('/session/flush', function (Request $request) {
         $request->session()->flush();
         return '清理成功';

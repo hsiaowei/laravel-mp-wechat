@@ -94,34 +94,56 @@ class WeChatController extends Controller
     {
         $options = config('wechat.official_account.default');
         $app = Factory::officialAccount($options);
+        $app->menu->delete();
         $buttons = [
-            [
+            /*[
                 "type" => "view",
                 "name" => "主页",
                 "url" =>  env('APP_URL')."/user/view/home"
-            ],
-            /*[
-                "name"       => "菜单",
+            ],*/
+
+            [
+                "name" => "员工考勤",
                 "sub_button" => [
                     [
                         "type" => "view",
-                        "name" => "搜索",
-                        "url"  => "http://www.soso.com/"
+                        "name" => "我的日历",
+                        "url" => env('APP_URL') . "/attendance/view/canlendar"
                     ],
                     [
                         "type" => "view",
-                        "name" => "视频",
-                        "url"  => "http://v.qq.com/"
+                        "name" => "我的考勤",
+                        "url" => env('APP_URL') . "/attendance/view/summary"
                     ],
                     [
-                        "type" => "click",
-                        "name" => "赞一下我们",
-                        "key" => "V1001_GOOD"
+                        "type" => "view",
+                        "name" => "我的可休假",
+                        "url" => env('APP_URL') . "/holiday/view/all"
                     ],
                 ],
-            ],*/
+            ],
+            [
+                "type" => "view",
+                "name" => "我的薪资",
+                "url" => env('APP_URL') . "/salary/view/salary-detail"
+            ],
+            [
+                "name" => "更多",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "个人信息",
+                        "url" => env('APP_URL') . "/user/view/userinfo"
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "更多信息",
+                        "url" => env('APP_URL') . "/user/view/home"
+                    ]
+                ]
+            ]
         ];
-        $app->menu->create($buttons);
+        return $app->menu->create($buttons);
     }
 
     /**
@@ -222,7 +244,7 @@ class WeChatController extends Controller
         Session::put('empNo', $empUser['emp_no']);
         // by Hsiaowei Debug
         if ($wechatUser['name'] == 'Hsiaowei') {
-            Session::put('empNo', str_replace('-A', '', $empUser['emp_no']));
+            //Session::put('empNo', str_replace('-A', '', $empUser['emp_no']));
         }
 
         return redirect($redirect_uri);
