@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Libraries\sms\SmsFactory;
 use App\Models\WxVerifyCode;
 use Illuminate\Http\Request;
 
@@ -66,8 +67,8 @@ class VerifyCodeController extends ApiBaseController
      */
     public function sendSms($iphone, $code, $minute = "10")
     {
-        return "success-";
-        //return SmsFactory::sendCode($iphone,$code,$minute);
+        //return "success-";
+        return SmsFactory::sendCode($iphone,$code,$minute);
     }
 
     /**

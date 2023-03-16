@@ -24,8 +24,7 @@
                                 {{ trans('department.id_card') }}
                             </div>
                             <div class="id_card_bottom">
-                                <p>{{ trans('department.card_type') }}: </p>
-                                @{{ card.credentialstype | card_type }}
+                                <b>{{ trans('department.card_type') }}: </b>@{{ card.credentialstype | card_type }}
                             </div>
                             {{--<div class="id_card_center">--}}
                             {{--<div class="id_card_sex">--}}
@@ -46,8 +45,7 @@
                             {{--@{{ card.address }}--}}
                             {{--</div>--}}
                             <div class="id_card_bottom">
-                                <p>{{ trans('department.id_card_number') }}: </p>
-                                @{{ card.credentialsno }}
+                                <b>{{ trans('department.id_card_number') }}: </b>@{{ card.credentialsno }}
                             </div>
                         </div>
                     </mt-popup>
@@ -298,7 +296,7 @@
             methods: {
                 staff_mes: function () {
                     var that = this;
-                    var params = that.ifSelf ? {}:{emp_no: that.empNo};
+                    var params = that.ifSelf ? {} : {emp_no: that.empNo};
                     axios.get("/api/user/getinfo", {params}).then(function (res) {
                         if (res.data.code == 0 && res.data.data) {
                             that.student_data = res.data.data.edu_detail;
@@ -327,6 +325,7 @@
                             that.work_experience = JSON.parse(res.data.data.emp_career);//工作经历
                             that.contract = JSON.parse(res.data.data.emp_arg); //合同列表
                             that.id_card = JSON.parse(res.data.data.emp_credentials);//身份证数据
+                            console.log(that.id_card);
                             that.emp_bank = JSON.parse(res.data.data.emp_bank);
                         }
 

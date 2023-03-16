@@ -521,17 +521,14 @@
     margin-right: 0.3rem;
 }
 .id_card_bottom{
+    float: left;
     width: 97%;
     margin-left: 3%;
     height: 0.6rem;
     line-height: 0.6rem;
     font-size: 0.28rem;
     text-align: left;
-}
-.id_card_bottom p{
-    float: left;
-    margin-right: 0.1rem;
-    font-weight: 600;
+    white-space: nowrap;
 }
 .bank_card_top{
     width: 97%;

@@ -98,7 +98,7 @@ class WeChatController extends Controller
             [
                 "type" => "view",
                 "name" => "主页",
-                "url" => "http://wxqyh.areschina.com/user/view/home"
+                "url" =>  env('APP_URL')."/user/view/home"
             ],
             /*[
                 "name"       => "菜单",
@@ -218,10 +218,6 @@ class WeChatController extends Controller
         }
         // 缓存信息
         Session::put('wechat_user_info', $empUser);
-
-        if ($empUser['company_id'] == 22) {
-            return Response()->view("Layout.WechatError");
-        }
         Session::put('companyId', $empUser['company_id']);
         Session::put('empNo', $empUser['emp_no']);
         // by Hsiaowei Debug

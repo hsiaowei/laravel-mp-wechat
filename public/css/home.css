@@ -33,9 +33,9 @@ ul{margin:0;padding:0;list-style-type:none}
 hr{margin-top:.28rem;margin-bottom:.28rem;border:0;border-top:1px solid #DDD8CE}
 h6,p{line-height:1.41;text-align:justify;margin:-.2em 0;word-break:break-all}
 small,weak{color:#666}
-::-webkit-input-placeholder {color:#999;line-height:normal;} 
-:-moz-placeholder {color:#999;line-height:normal;} 
-::-moz-placeholder {color:#999;line-height:normal;} 
+::-webkit-input-placeholder {color:#999;line-height:normal;}
+:-moz-placeholder {color:#999;line-height:normal;}
+::-moz-placeholder {color:#999;line-height:normal;}
 /*@font-face {
     font-family:'freshregular';
     src: url('font/fresh-webfont.eot');
@@ -94,14 +94,14 @@ a.react.react-active,a.react:active,label.react:active{background:rgba(0,0,0,.1)
 .categoryLiIcon{overflow:hidden;background:white;margin:.15rem 0;padding-bottom:.5rem;}
 .categoryDesc{
 	background: #f3f3f3;
-	padding: 0.1rem;
+	padding: 0.25rem .1rem;
 }
 .categoryLiIcon li{float:left;width:33.3%;overflow:hidden;margin-top:.2rem;}
 .categoryLiIcon li a{display:block;text-align:center;}
 .categoryLiIcon li a i{width:0.8rem;height:0.8rem;border-radius:50%;margin:.2rem 0;text-align: center;}
 .categoryLiIcon li a em{display:block;font-style:normal;color:#666; font-size: 0.23rem;}
 
-.categoryLiIcon li a>.fa{font-size: .5rem;border: 1px solid #ccc;
+.categoryLiIcon li a>.fa{font-size: .5rem;
 	border-radius: 50%;line-height: .8rem;
 	color: #0084e9;}
 
