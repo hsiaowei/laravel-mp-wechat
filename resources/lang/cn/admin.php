@@ -43,7 +43,7 @@ return [
     'iphone' => '手机号',
     'idcard' => '身份证号码',
     'verify_code' => '验证码',
-    'verify_send' => '发送',
+    'verify_send' => '获取验证码',
 
     'home' => '首页',
 

@@ -73,7 +73,7 @@
                 <div class="input_group" @click="choose_years" readonly="readonly"></div>
             </div>
             <div class="salary_details">
-                <div class="salary_mes">
+                <div class="salary_mes" v-if="salary_or_bonus.amount.emp_amount != 0">
                     <div class="tab_circle">
                         <p class="special_adjustment" v-text="emp_pay_type==1?
                         '{{trans('salary.real_desc').trans("salary.special_adjustment")}}'
@@ -187,7 +187,7 @@
                         </el-collapse-item>
                     </el-collapse>
                 </div>
-                <div v-else style="text-align:center;width:100%">
+                <div class="no_data" v-else>
                     暂无数据
                 </div>
             </div>

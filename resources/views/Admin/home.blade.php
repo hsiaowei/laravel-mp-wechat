@@ -73,19 +73,19 @@
                 <li>
                     <a href="/user/view/mydepartment">
                         <i class="fa fa-users"></i>
-                        <em>我的部署</em>
+                        <em>我的部属</em>
                     </a>
                 </li>
                 <li>
                     <a href="/attendance/view/attendance-list">
                         <i class="fa fa-calendar-o"></i>
-                        <em>部署考勤</em>
+                        <em>部属考勤</em>
                     </a>
                 </li>
                 <li>
                     <a href="/salary/view/staff-salary">
                         <i class="fa fa-money"></i>
-                        <em>部署薪资</em>
+                        <em>部属薪资</em>
                     </a>
                 </li>
             </ul>

@@ -31,8 +31,11 @@ class VerifyCodeController extends ApiBaseController
             'iphone' => 'required',
         ]);
         $iphone = $request->get('iphone');
-        // todo send code
+        if (strlen($iphone) !=11){
+            return $this->success(1, '手机号有误!');
+        }
         $code = $this->randString(6, '0123456789');
+        // 发送验证码
         $sendMsg = $this->sendSms($iphone, $code);
         $data = [
             'code' => $code,
@@ -44,20 +47,16 @@ class VerifyCodeController extends ApiBaseController
         if ($result) {
             $result = $this->success(0, '发送成功!');
         } else {
-
             $result = $this->success(1, '发送失败!');
         }
         return $result;
-
     }
 
 
     public function testSendTencentCloudSms()
     {
-
         $code = $this->randString(6, '0123456789');
         return $this->sendSms('13812652676', $code);
-        //$this->sendTencentCloudSms('13451521321', $code);
     }
 
     /**

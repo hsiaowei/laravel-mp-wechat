@@ -19,8 +19,7 @@ html,body{
     background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
     background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0) 50%, transparent 50%);
     background-size: 120% 0px !important;
-    /*border-bottom: 1px solid #999;*/
-    margin-left: 0.2rem
+    padding-left: 0.2rem
 }
 .findPwd_body{
     width: 80%;
@@ -130,21 +129,25 @@ html,body{
 }
 
 .login_logo{
-    padding-top: 1.5rem;
-    margin-bottom: 0.8rem;
+    padding-top: 1rem;
+    margin-left: 10%;
+    margin-bottom: 0.5rem;
     min-height: 1.5rem;
-    width: 100%;
-    text-align: center;
+    width: 80%;
 }
 .login_logo img{
     width: 1.2rem;
     height: auto;
+    float: left;
 }
 .login_input{
-    width: 70%;
-    margin-left: 15%;
+    width: 80%;
+    margin-left: 10%;
     /*height: 0.8rem;*/
     margin-top: 0.1rem;
+}
+.border_bottom_line{
+    border-bottom: 1px solid #999;
 }
 .login_input p{
     font-size: 0.35rem;
@@ -153,6 +156,10 @@ html,body{
     line-height: 0.8rem;
     color: #20A0FF;
 }
+.login_input input{
+    letter-spacing: 3px;
+}
+
 .is-nolabel{
     height: 0.8rem;
     line-height: 0.8rem;
@@ -191,5 +198,18 @@ a{
     width: 41%;
     /*display: initial;*/
 }
-
+.phone_pre{
+    font-size: 0.26rem;
+    height: 0.8rem;
+    float: left;
+    line-height: 0.8rem;
+    color: #7a7575;
+    margin-left: 0.2rem;
+    letter-spacing: 3px;
+}
+.bind_notice{
+    margin-top: 0.2rem;
+    font-size: .2rem;
+    font-weight: bold;
+    color: #757575;
 }

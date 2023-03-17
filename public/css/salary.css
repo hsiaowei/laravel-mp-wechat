@@ -1,40 +1,47 @@
-html,body{
+html, body {
     background: #fff;
 }
-#salary{
+
+#salary {
     width: 100%;
     height: 100%;
 }
-#panel{
+
+#panel {
     background: #fff;
-    width:100%;
-    height:50%;
+    width: 100%;
+    height: 50%;
 }
-#main,#salary_more{
-    width:100%;
-    height:100%;
+
+#main, #salary_more {
+    width: 100%;
+    height: 100%;
 }
-.salary_details{
+
+.salary_details {
     background: #fff;
-    width:100%;
-    height:auto;
-    overflow:hidden;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
     box-shadow: 0px 0px 5px #ccc;
 }
-#salary_more .salary_details{
+
+#salary_more .salary_details {
     background: #fff;
-    width:100%;
-    min-height:90%;
-    overflow:hidden;
+    width: 100%;
+    min-height: 90%;
+    overflow: hidden;
     box-shadow: 0px 0px 5px #ccc;
     padding-bottom: 5%;
 }
-.apply_group{
+
+.apply_group {
     width: 100%;
-    height:0.6rem;
+    height: 0.6rem;
     border-bottom: 1px solid #F0F0F0;
 }
-.apply_group .salary_title{
+
+.apply_group .salary_title {
     width: 40%;
     float: left;
     font-size: 0.28rem;
@@ -43,7 +50,8 @@ html,body{
     line-height: 0.6rem;
     padding-left: 0.3rem;
 }
-.apply_group .salary_content{
+
+.apply_group .salary_content {
     width: 40%;
     float: right;
     font-size: 0.25rem;
@@ -53,76 +61,89 @@ html,body{
     padding-right: 0.3rem;
     color: #2BA7EA;
 }
-.mint-cell-wrapper{
+
+.mint-cell-wrapper {
     padding: 0 0.3rem;
     background-size: 0 0;
     height: 0.8rem;
     line-height: 0.8rem;
     font-size: 0.28rem;
 }
-.mint-cell{
+
+.mint-cell {
     min-height: 0.55rem;
 }
-.mint-cell:last-child{
+
+.mint-cell:last-child {
     background-image: linear-gradient(0deg, #fff, #fff 50%, transparent 50%)
 }
-.apply_btn{
+
+.apply_btn {
     height: 0.8rem;
     line-height: 0.8rem;
     text-align: center;
 
     font-size: 0.28rem;
 }
-.apply_btn p{
+
+.apply_btn p {
     color: #2BA7EA;
 }
 
-#salary_header{
+#salary_header {
     height: 0.68rem;
     line-height: 0.65rem;
     background: #fff;
 }
-#toymd{
+
+#toymd {
     width: 30%;
     float: left;
 }
-.input_group{
+
+.input_group {
     width: 35%;
     z-index: 999;
     float: left;
     position: absolute;
     height: 0.65rem;
     margin-left: 28%;
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
     border: none;
 }
-.fa-calendar{
+
+.fa-calendar {
     margin-left: 32%;
     font-size: 0.3rem;
     line-height: 0.65rem;
     color: #2BA7EA;
     float: left;
 }
-#salary_details .fa-calendar{
+
+#salary_details .fa-calendar {
     margin-right: 0.1rem;
     margin-top: 0.02rem;
 }
+
 #salary_header .mint-cell-wrapper {
     padding: 0 0;
     background-size: 0 0;
     font-size: 0.35rem;
 }
-#salary_header .mint-cell{
+
+#salary_header .mint-cell {
     height: 0.7rem;
     background: none;
 }
-#salary_header .mint-field-core{
+
+#salary_header .mint-field-core {
     text-align: center;
     color: #2BA7EA;
     line-height: 0.65rem;
     height: 0.7rem;
     background: none;
 }
+
 .mint-popup-bottom {
     top: auto;
     right: auto;
@@ -132,62 +153,76 @@ html,body{
     transform: translate3d(-50%, 0, 0);
     width: 100%;
 }
+
 .mint-navbar {
     background-color: #fff;
     display: inline;
     text-align: center;
 }
-.mint-tab-item{
+
+.mint-tab-item {
     width: 1rem;
     float: left;
 }
+
 .mint-navbar .mint-tab-item {
     padding: 0.15rem 0;
 }
+
 .mint-navbar .mint-tab-item.is-selected {
     border-bottom: 1px solid #2BA7EA;
     color: #2BA7EA;
     margin-bottom: -3px;
 }
-.salary_mes{
+
+.salary_mes {
     margin-top: 0.6rem;
 }
-#salary_details .salary_mes{
+
+#salary_details .salary_mes {
     margin-top: 0;
 }
-.tab_circle{
+
+.tab_circle {
     width: 2.2rem;
     height: 2rem;
     border-radius: 50%;
     border: 1px solid #2BA7EA;
-    margin:0.5rem auto;
+    margin: 0.5rem auto;
     text-align: center;
 }
-.tab_circle .special_adjustment{
+
+.tab_circle .special_adjustment {
     font-size: 0.28rem;
     margin-top: 0.3rem;
 }
-.tab_circle .monthly_wages{
+
+.tab_circle .monthly_wages {
     font-size: 0.45rem;
     margin: 0.1rem 0 0.05rem 0;
 }
-.tab_circle .add_wages{
+
+.tab_circle .add_wages {
     font-size: 0.25rem;
     color: #2BA7EA;
 }
-.tab_circle .fa{
+
+.tab_circle .fa {
     font-size: 0.25rem;
     height: 0.15rem;
 }
-#staffSalary{
+
+#staffSalary {
     width: 100%;
     height: 100%;
     background-color: #fff;
 }
-.staffSalary_header{
+
+.staffSalary_header {
     width: 100%;
     height: 0.8rem;
 }
+
 .mint-searchbar {
     margin-top: 0.3rem;
     width: 80%;
@@ -196,29 +231,35 @@ html,body{
     border-radius: 0.5rem;
     background-color: #F0F0F0;
 }
+
 .mint-searchbar-inner {
     padding: 0 0.2rem;
     border-radius: 0.5rem;
     background-color: #F0F0F0;
     height: 0.5rem;
 }
-.mint-searchbar-core{
+
+.mint-searchbar-core {
     background-color: #F0F0F0;
 }
+
 .mint-searchbar-inner .mintui-search {
     font-size: 14px;
     color: #d9d9d9;
     margin-top: 2px;
 }
-.staffSalary_details{
+
+.staffSalary_details {
     width: 100%;
     min-height: 1rem;
 }
-.staffSalary_list{
+
+.staffSalary_list {
     width: 100%;
     height: 1.5rem;
     border-bottom: 1px solid #F0F0F0;
 }
+
 .staffSalary_list img {
     width: 0.8rem;
     height: 0.8rem;
@@ -226,24 +267,28 @@ html,body{
     margin: 0.1rem 0.1rem;
     float: left;
 }
-.staff_data{
+
+.staff_data {
     height: 0.7rem;
     margin-top: 0.15rem;
     width: 60%;
     float: left;
 }
-.staff_top{
+
+.staff_top {
     height: 0.4rem;
 }
-.staff_name{
+
+.staff_name {
     float: left;
     font-size: 0.28rem;
     line-height: 0.4rem;
-    font-weight:600 ;
+    font-weight: 600;
     color: #333;
     width: 0.9rem;
 }
-.staff_level{
+
+.staff_level {
     float: left;
     width: 2rem;
     text-align: center;
@@ -257,17 +302,20 @@ html,body{
     color: #2BA7EA;
     background: #D5EDFB;
 }
-.staff_bottom{
+
+.staff_bottom {
     height: 0.3rem;
 }
-.staff_bottom p{
+
+.staff_bottom p {
     float: left;
     color: #999;
     font-size: 0.2rem;
     line-height: 0.3rem;
     margin-right: 0.1rem;
 }
-.staff_salary{
+
+.staff_salary {
     height: 1rem;
     line-height: 1rem;
     font-size: 0.28rem;
@@ -275,7 +323,8 @@ html,body{
     text-align: right;
     float: right;
 }
-.staff_salary i{
+
+.staff_salary i {
     margin: -0.03rem 0.05rem 0 0.05rem;
     font-size: 0.22rem;
     line-height: 1rem;
@@ -286,30 +335,35 @@ html,body{
     background-color: #fff;
     line-height: 0.5rem;
 }
+
 .el-collapse-item__header i {
     float: right;
-    line-height: 0.65rem;
+    line-height: 0.9rem;
     margin-right: 0.1rem;
     color: #ccc;
 }
+
 .view_more {
     font-size: 0.28rem;
     float: right;
     margin-right: 0.15rem;
     color: #2BA7EA;
 }
+
 .advice_content p {
     padding-left: 0.25rem;
     color: #999;
     line-height: 0.55rem;
     font-size: 0.28rem;
 }
-.el-collapse-item__content{
-    padding: 0 5px !important;
+
+.el-collapse-item__content {
+    padding: 0.1rem !important;
 }
+
 .el-collapse-item__header {
-    height: 0.65rem !important;
-    line-height:  0.65rem !important;
+    height: 0.9rem !important;
+    line-height: 0.9rem !important;
     padding-left: 15px;
     background-color: #fff;
     color: #48576a;
@@ -317,11 +371,13 @@ html,body{
     border-bottom: 1px solid #dfe6ec;
     font-size: 0.28rem !important;
 }
+
 .mint-tab-item-label {
     color: inherit;
     font-size: 14px;
     line-height: 1;
 }
+
 .login_logo {
     padding-top: 1.5rem;
     margin-bottom: 0.8rem;
@@ -329,9 +385,10 @@ html,body{
     width: 100%;
     text-align: center;
 }
-.login_logo  p {
-    text-align:center;
-    font-size:18px;
+
+.login_logo p {
+    text-align: center;
+    font-size: 18px;
     font-weight: bolder;
     color: #345097
 }
@@ -340,21 +397,26 @@ html,body{
     width: 1.2rem;
     height: auto;
 }
+
 .login_input {
     width: 70%;
     margin-left: 15%;
     height: 0.8rem;
     margin-top: 0.1rem;
 }
-.forget_password_btn{
+
+.forget_password_btn {
     font-size: 16px;
     text-align: right;
     margin-top: 30px;
     margin-right: 45px;
-}.forget_password_btn a{
-
-    color:#5cadff;
 }
+
+.forget_password_btn a {
+
+    color: #5cadff;
+}
+
 .login_input p {
     font-size: 0.35rem;
     height: 0.8rem;
@@ -367,6 +429,7 @@ html,body{
     width: 100%;
     margin-left: 0;
 }
+
 .mint-button--primary {
     color: #fff;
     background-color: #26a2ff;
@@ -378,18 +441,22 @@ html,body{
     font-size: 0.25rem;
     box-shadow: 0 0 10px #ccc;
 }
-.mint-button-text{
+
+.mint-button-text {
     font-size: 0.3rem;
 }
-#salary_details .login_input .mint-field-core{
+
+#salary_details .login_input .mint-field-core {
     margin-left: 0.2rem;
 }
+
 #salary_details .login_input .is-nolabel {
     height: 0.8rem;
     line-height: 0.8rem;
     border-bottom: 1px solid #ccc;
     padding-left: 0.2rem;
 }
+
 .popup_pwd {
     font-size: 0.28rem;
     padding: 0.2rem 0.3rem;
@@ -401,11 +468,12 @@ html,body{
     -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
 }
-.mint-search-list{
+
+.mint-search-list {
     display: none;
 }
 
-.bonus_btn{
+.bonus_btn {
     font-size: x-large;
     float: right;
     margin-right: .5rem;
@@ -413,13 +481,22 @@ html,body{
     right: 0;
     top: 3rem;
 }
-.bonus_btn>button{
+
+.bonus_btn > button {
     background: #2BA7EA;
     color: #ffffff;
     border-radius: .1rem;
     border: 0;
     padding: .1rem;
 }
-.bonus_btn>button>pre{
+
+.bonus_btn > button > pre {
     margin: 0px;
+}
+
+.no_data {
+    text-align: center;
+    width: 100%;
+    margin: 1rem 0;
+    font-size: 18px;
 }
