@@ -54,7 +54,7 @@
         })
     </script>
     <script>
-        var a = 0;
+        var a = 2;
         new Vue({
             el: '#salary_more',
             data: {
@@ -77,7 +77,10 @@
             },
             mounted: function () {
                 var that = this;
-                var params = (that.empNo.length != 0) ? {emp_no: that.empNo} : {};
+                var params ={};
+                if (that.empNo.length != 0) {
+                    params['emp_no'] = that.empNo;
+                }
                 axios.get("/api/salary/query-more", {params}).then(function (res) {
                     that.slots[0].values = res.data;
                     that.slots[0].defaultIndex = res.data.length - 1;
@@ -100,7 +103,6 @@
                 },
                 onValuesChange: function (picker, values) {
                     this.toymd = values[0];
-
                     a++;
                     if (a > 2) {
                         var last_year = this.toymd;
@@ -113,7 +115,6 @@
                     var params = {year: last_year};
                     if (that.empNo.length != 0) {
                         params['emp_no'] = that.empNo;
-
                     }
                     axios.get("/api/salary/query-more", {params}).then(function (res) {
                         that.salary_details = res.data;

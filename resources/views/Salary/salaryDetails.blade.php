@@ -18,7 +18,6 @@
                     <mt-field placeholder="{{ trans('admin.pasword') }}" type="password" v-model="password"></mt-field>
                 </div>
 
-
                 <div class="login_input">
 
                     <mt-button type="primary" :disabled="btnDisabled"
@@ -210,12 +209,10 @@
         var to_month = new Date().getMonth();//标准时间  今天  月
         var a = 0;
 
-        var isFirst = "{{ $isfirstlogin }}";
-        var userID = "{{ $userId }}";
         var vue = new Vue({
             el: '#salary_details',
             data: {
-                isfirstlogin: '',
+                isfirstlogin: '{{ $isfirstlogin }}',
                 toymd: '',
                 password: '',
                 newpassword: '',
@@ -228,6 +225,7 @@
                 salary_page: false,
                 popup_pwd: false,
                 popup_pwdM: false,
+                empNo: '{{(request('emp_no'))}}',
                 slots: [
                     {
                         defaultIndex: to_years,
@@ -275,8 +273,6 @@
             },
             mounted: function () {
                 var that = this;
-                that.isfirstlogin = isFirst;
-
                 if (that.isfirstlogin == 'Y') {
                     that.popup_pwdM = true;
                 }
@@ -325,7 +321,6 @@
                     that.btnDisabled = true;
                     axios.get("/api/salary/check-pwd", {
                         params: {
-                            emp_no: userID,
                             pwd: that.password
                         }
                     }).then(function (res) {
@@ -367,7 +362,6 @@
 
                         axios.get("/api/salary/modify-pwd", {
                             params: {
-                                emp_no: userID,
                                 oldpwd: this.password,
                                 newpwd: this.newpassword
                             }
@@ -388,11 +382,12 @@
 
                 salaryDetails: function (current_month) {
                     var that = this;
+                    var params = {month_no: current_month};
+                    if(that.empNo!=''){
+                        params['emp_no'] =that.empNo;
+                    }
                     axios.get("/api/salary/salary-detail", {
-                        params: {
-                            month_no: current_month,
-                            emp_no: userID
-                        }
+                        params: params
                     }).then(function (res) {
                         //console.log(res);
                         that.emp_pay_type = 1;
@@ -405,12 +400,12 @@
                 },
                 bonusDetails: function (current_month) {
                     var that = this;
+                    var params = {month_no: current_month,type: 2};
+                    if(that.empNo!=''){
+                        params['emp_no'] =that.empNo;
+                    }
                     axios.get("/api/salary/salary-detail", {
-                        params: {
-                            month_no: current_month,
-                            emp_no: userID,
-                            type: 2
-                        }
+                        params: params
                     }).then(function (res) {
                         //console.log(res);
                         if (res.data.emp_salary) {

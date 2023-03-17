@@ -65,13 +65,13 @@ html, body {
 .mint-cell-wrapper {
     padding: 0 0.3rem;
     background-size: 0 0;
-    height: 0.8rem;
-    line-height: 0.8rem;
+    height: 0.65rem;
+    line-height: 0.65rem;
     font-size: 0.28rem;
 }
 
 .mint-cell {
-    min-height: 0.55rem;
+    min-height: 0.65rem;
 }
 
 .mint-cell:last-child {
@@ -91,7 +91,7 @@ html, body {
 }
 
 #salary_header {
-    height: 0.68rem;
+    height: 0.65rem;
     line-height: 0.65rem;
     background: #fff;
 }
@@ -120,19 +120,19 @@ html, body {
     float: left;
 }
 
-#salary_details .fa-calendar {
-    margin-right: 0.1rem;
-    margin-top: 0.02rem;
-}
+/*#salary_details .fa-calendar {*/
+/*    !*margin-right: 0.1rem;*!*/
+/*    margin-top: 0.02rem;*/
+/*}*/
 
 #salary_header .mint-cell-wrapper {
     padding: 0 0;
     background-size: 0 0;
-    font-size: 0.35rem;
+    font-size: 0.38rem;
 }
 
 #salary_header .mint-cell {
-    height: 0.7rem;
+    height: 0.65rem;
     background: none;
 }
 

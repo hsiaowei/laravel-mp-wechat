@@ -171,11 +171,8 @@ class SalaryController extends HrBaseController
      */
     public function getSalaryDetail(Request $request)
     {
-        $this->validate($request, [
-            'emp_no' => 'required',
-        ]);
-        $companyId = session('companyId', 15);
-        $emp_no = $request->get('emp_no');
+        $companyId = session('companyId');
+        $emp_no = $request->get('emp_no',session('empNo'));
         $month_no = $request->get('month_no');
         $emp_pay_type = $request->get('type', 1);
 
@@ -285,8 +282,6 @@ class SalaryController extends HrBaseController
         $companyId = session('companyId');
         $emp_no = $request->get('emp_no', session('empNo'));
         $year = $request->get('year');
-
-
         //查询某年的调薪详情
         $salaryp = new Salaryp();
         $result = $salaryp->getSalaryPByYear($companyId, $emp_no, $year);
