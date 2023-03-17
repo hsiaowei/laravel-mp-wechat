@@ -14,7 +14,7 @@
 
             <div v-if="isfirstlogin=='N'">
                 <div class="login_input">
-                    <p class="fa fa-user"></p>
+{{--                    <p class="fa fa-user"></p>--}}
                     <mt-field placeholder="{{ trans('admin.pasword') }}" type="password" v-model="password"></mt-field>
                 </div>
 
@@ -38,17 +38,17 @@
                     <p>第一次登录请修改密码</p>
                 </mt-popup>
                 <div class="login_input">
-                    <p class="fa fa-user"></p>
+{{--                    <p class="fa fa-user"></p>--}}
                     <mt-field placeholder="{{ trans('admin.oldpasword') }}" type="password"
                               v-model="password"></mt-field>
                 </div>
                 <div class="login_input">
-                    <p class="fa fa-user"></p>
+{{--                    <p class="fa fa-user"></p>--}}
                     <mt-field placeholder="{{ trans('admin.newpasword') }}" type="password"
                               v-model="newpassword"></mt-field>
                 </div>
                 <div class="login_input">
-                    <p class="fa fa-user"></p>
+{{--                    <p class="fa fa-user"></p>--}}
                     <mt-field placeholder="{{ trans('admin.newcpasword') }}" type="password"
                               v-model="newcpassword"></mt-field>
                 </div>

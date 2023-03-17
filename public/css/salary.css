@@ -386,23 +386,26 @@ html, body {
     text-align: center;
 }
 
-.login_logo p {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bolder;
-    color: #345097
+.login_logo{
+    padding-top: 1rem;
+    margin-left: 10%;
+    margin-bottom: 0.5rem;
+    min-height: 1.5rem;
+    width: 80%;
 }
-
-.login_logo img {
+.login_logo img{
     width: 1.2rem;
     height: auto;
+    float: left;
 }
-
 .login_input {
-    width: 70%;
-    margin-left: 15%;
-    height: 0.8rem;
+    width: 80%;
+    margin-left: 10%;
+    /*height: 0.8rem;*/
     margin-top: 0.1rem;
+}
+.login_input input{
+    letter-spacing: 3px;
 }
 
 .forget_password_btn {
@@ -454,7 +457,6 @@ html, body {
     height: 0.8rem;
     line-height: 0.8rem;
     border-bottom: 1px solid #ccc;
-    padding-left: 0.2rem;
 }
 
 .popup_pwd {
