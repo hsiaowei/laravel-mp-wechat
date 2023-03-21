@@ -113,12 +113,13 @@ class WeChatController extends Controller
                     [
                         "type" => "view",
                         "name" => "我的考勤",
-                        "url" => env('APP_URL') . "/attendance/view/summary"
+                        //"url" => env('APP_URL') . "/attendance/view/summary"
+                        "url" => env('APP_URL') . "/attendance/view/summaryDetail"
                     ],
                     [
                         "type" => "view",
                         "name" => "我的可休假",
-                        "url" => env('APP_URL') . "/holiday/view/all"
+                        "url" => env('APP_URL') . "/holiday/view/all-new"
                     ],
                 ],
             ],

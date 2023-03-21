@@ -108,7 +108,6 @@
         var to_day = new Date().getDate();//标准时间  今天  日
         var a = 0;
 
-        var userID = "{{ $userId }}";
         var isFirst = "{{ $isfirstlogin }}";
         var query_date = ['2009-09', '2010-07'];
         var all_salary_number = [1500, 2800];
@@ -162,7 +161,7 @@
             },
             methods: {
                 click_url: function () {
-                    this.list_url = "{{URL('/salary/view/query-more')}}";
+                    this.list_url = '/salary/view/query-more';
                 },
 
                 psw_verify_btn: function () {
@@ -176,7 +175,6 @@
                     that.btnDisabled = true;
                     axios.get("/api/salary/check-pwd", {
                         params: {
-                            emp_no: userID,
                             pwd: that.password
                         }
                     }).then(function (res) {
@@ -187,7 +185,6 @@
 
                             axios.get("/api/salary/salary-query", {
                                 params: {
-                                    emp_no: userID,
                                     basedate: '2017/10/08'
                                 }
                             }).then(function (res) {
@@ -228,7 +225,6 @@
                         that.btnDisabled = true;
                         axios.get("/api/salary/modify-pwd", {
                             params: {
-                                emp_no: userID,
                                 oldpwd: this.password,
                                 newpwd: this.newpassword
                             }
@@ -253,12 +249,12 @@
         function myChart(query_date, all_salary_number, all_query_number) {
             var myChart = echarts.init(document.getElementById("main"));
             myChart.setOption({
-                title: {
+                /*title: {
                     text: '调薪历史',
                     textStyle: {
                         color: '#333'
                     }
-                },
+                },*/
                 tooltip: {
                     trigger: 'axis'
                 },

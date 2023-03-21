@@ -20,8 +20,7 @@
             {{--<mt-navbar v-model="active">--}}
             {{--<mt-tab-item v-for="(tab_n,key) in salary_details" :id="key">@{{ key }}</mt-tab-item>--}}
             {{--</mt-navbar>--}}
-
-            <div class="salary_details">
+            <div class="salary_details" v-if="salary_details.length !=0">
                 <mt-navbar v-model="active">
                     <mt-tab-item v-for="(tab_n,index) in salary_details" v-bind:id="index" :key="tab_n.id">@{{
                         tab_n.validate_date | date_time }}
@@ -38,7 +37,12 @@
                                  v-bind:value="tab_mes.amount" :key="tab_mes.id"></mt-cell>
                     </mt-tab-container-item>
                 </mt-tab-container>
+            </div>
+            <div v-else>
+                <div class="no_data">
+                    {{trans('admin.without_data')}}
 
+                </div>
             </div>
         </div>
     </div>
@@ -54,7 +58,7 @@
         })
     </script>
     <script>
-        var a = 2;
+        var a = 0;
         new Vue({
             el: '#salary_more',
             data: {

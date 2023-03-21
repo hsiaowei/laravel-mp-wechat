@@ -91,8 +91,8 @@ Route::group(['prefix' => "attendance", 'middleware' => ['wechat.auth']], functi
         //考勤汇总
         Route::get('summary', 'HrService\AttendanceController@attendanceSummaryView');
         //考勤详细信息
-        Route::get('detail', 'HrService\AttendanceController@attendanceDeatilView');
-        //总考勤排名
+        Route::get('detail', 'HrService\AttendanceController@attendanceDetailView');
+        //总考勤排名(部属考勤)
         Route::get('attendance-list', 'HrService\AttendanceController@attendanceListView');
         //加班排名
         Route::get('overtime-list', 'HrService\AttendanceController@overTimeRankingView');
@@ -102,6 +102,9 @@ Route::group(['prefix' => "attendance", 'middleware' => ['wechat.auth']], functi
         Route::get('attend-error', 'HrService\AttendanceController@attendRankingView');
         //考勤确认页面
         Route::get('attendance-check', 'HrService\AttendanceController@attendanceCheckView');
+
+        // 考勤汇总加明细 add
+        Route::get('summaryDetail', 'HrService\AttendanceController@summaryDetailView');
     });
 
 });
@@ -130,6 +133,8 @@ Route::group(['prefix' => "holiday", 'middleware' => ['cut.database', 'wechat.au
     Route::group(['prefix' => "view", 'middleware' => []], function () {
         //节假日汇总
         Route::get('all', 'HrService\HolidayController@holidayAllView');
+        // 我的可休假V2
+        Route::get('all-new','HrService\HolidayController@holidayAllNewView');
         //节假日详情
         Route::get('detail', 'HrService\HolidayController@holidayDetailView');
 

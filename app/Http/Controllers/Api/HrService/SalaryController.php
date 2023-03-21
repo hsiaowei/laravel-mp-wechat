@@ -96,8 +96,7 @@ class SalaryController extends HrBaseController
         $companyId = session('companyId');
         $bank = $request->get('bank');
         $newPwd = $request->get('newpwd');
-        $userinfo = session('wechat_user_info');
-        $emp_no = $userinfo['emp_no'];
+        $emp_no = session('empNo');;
 
         $userRes = $this->user->getUserInfo($companyId, $emp_no);
         $cardList = json_decode($userRes->emp_bank);
@@ -231,11 +230,8 @@ class SalaryController extends HrBaseController
      */
     public function getSalaryQueryTotal(Request $request)
     {
-        $this->validate($request, [
-            'emp_no' => 'required',
-        ]);
         $companyId = session('companyId');
-        $emp_no = $request->get('emp_no');
+        $emp_no = $request->get('emp_no',session('empNo'));
 
         $salaryp = new Salaryp();
         //查询总体调薪情况

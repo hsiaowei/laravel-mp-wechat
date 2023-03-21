@@ -41,13 +41,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/attendance/view/summary">
+{{--                    <a href="/attendance/view/summary">--}}
+                    <a href="/attendance/view/summaryDetail">
                         <i class="fa fa-clock-o"></i>
                         <em>我的考勤</em>
                     </a>
                 </li>
                 <li>
-                    <a href="/holiday/view/all">
+                    <a href="/holiday/view/all-new">
                         <i class="fa fa-coffee"></i>
                         <em>我的可休假</em>
                     </a>

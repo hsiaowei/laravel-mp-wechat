@@ -77,9 +77,7 @@
             methods: {
                 formatIphone: function (){
                     var that = this;
-                    console.log(that.iphone);
                     var numberPhone = that.iphone.replace(/\s*/g,"");
-                    console.log(numberPhone.length);
                     if (numberPhone.length>7){
                         that.iphone = numberPhone.replace(/^(\d{3})(\d{0,4})/, '$1 $2 ');
                     }else if (numberPhone.length>3){
@@ -91,7 +89,6 @@
                 formatIdCard: function (){
                     var that = this;
                     var idCardTrim = that.idcard.replace(/\s*/g,"");
-                    console.log(idCardTrim.length);
                     if (idCardTrim.length>14){
                         that.idcard = idCardTrim.replace(/^(\d{6})(\d{0,8})/, '$1 $2 ');
                     }else if (idCardTrim.length>6){

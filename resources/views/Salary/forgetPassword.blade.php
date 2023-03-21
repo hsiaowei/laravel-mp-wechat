@@ -11,21 +11,20 @@
 
             <div class="login_logo">
                 <img v-bind:src="login_logo">
-                <p>修改密码</p>
             </div>
             <div>
                 <div class="login_input">
-                    <p class="fa fa-minus-square-o"></p>
+{{--                    <p class="fa fa-minus-square-o"></p>--}}
                     <mt-field autocomplete="off" placeholder="{{ trans('admin.bank') }}" type="text"
                               v-model="passwordForm.bank"></mt-field>
                 </div>
                 <div class="login_input">
-                    <p class="fa fa-user"></p>
+{{--                    <p class="fa fa-user"></p>--}}
                     <mt-field autocomplete="off" placeholder="{{ trans('admin.newpasword') }}" type="password"
                               v-model="passwordForm.newpassword"></mt-field>
                 </div>
                 <div class="login_input">
-                    <p class="fa fa-user"></p>
+{{--                    <p class="fa fa-user"></p>--}}
                     <mt-field autocomplete="off" placeholder="{{ trans('admin.newcpasword') }}" type="password"
                               v-model="passwordForm.newcpassword"></mt-field>
                 </div>
@@ -52,9 +51,6 @@
         })
     </script>
     <script>
-
-        var userID = "{{ $userId }}";
-        var companyID = "{{ session('wechat_user_info')['company_id'] }}";
         new Vue({
             el: '#salary_details',
             data: {
@@ -106,8 +102,6 @@
 
                         axios.get("/api/salary/bank-modify-pwd", {
                             params: {
-                                companyid: companyID,
-                                emp_no: userID,
                                 bank: this.passwordForm.bank,
                                 newpwd: this.passwordForm.newpassword
                             }

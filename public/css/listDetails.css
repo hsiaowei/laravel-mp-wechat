@@ -17,9 +17,10 @@
     width: 90%;
     margin-left: 5%;
     margin-top: -110px;
+    border-radius: .1rem;
 }
+
 .mint-navbar .mint-tab-item {
-    padding: 5px 0 10px 0;
     font-size: 16px;
 }
 .mint-tab-item-label {
@@ -31,10 +32,12 @@
     margin-left: 5%;
     margin-top: 10px;
     min-height: 300px;
+    border-radius: .1rem;
 }
 .mint-tab-container-item {
     width: 100%;
     margin-left: 0;
+    border-radius: .1rem;
 }
 .tab_message_attendance .el-row{
     padding-bottom: 5px;
@@ -94,13 +97,6 @@
     list-style-type:none;
     text-align: left;
 }
-.card_right_detail{
-    color:#999;
-    font-size: 0.22rem;
-    margin: 0.05rem 0 0 0;
-    list-style-type:none;
-    text-align: left;
-}
 .bg-card{
     padding-top: 0.1rem;
     min-height: 1.8rem;
@@ -109,7 +105,6 @@
     height: 100%;
 }
 .card_right{
-    margin-top: 0.2rem;
     height: 100%;
     text-align: center;
     vertical-align:middle;
@@ -283,7 +278,7 @@
 #attendance{
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: #ccc;
 }
 .attendance_header{
     width: 100%;
@@ -297,10 +292,13 @@
     width: 92%;
     margin-left: 4%;
     padding-top: 0px;
-    margin-top: -60px;
-    border-radius: 5px 5px 0 0;
-    height: 120px;
+    margin-top: 80px;
+    border-radius: 5px;
+    height: 0px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.tab_card_summary{
+    padding-top: .1rem;
 }
 .tab_message{
     background: #fff;
@@ -313,6 +311,7 @@
 .tab_message_attendance{
     width: 96%;
     margin-left: 2%;
+
 }
 .leave-left i{
     color:#26A6F0;
@@ -486,17 +485,4 @@
 .no_data{
     width: 100%;
     height: auto;
-}
-.card_hour{
-    font-size: 16px;
-}
-.card_hour>span{
-    font-size: 28px;
-    font-weight: 600;
-    color: #00acff;
-}
-.bg-card-chart{
-    height: 110px;
-    min-width: 41.66667%;
-    font-size: 16px;
 }

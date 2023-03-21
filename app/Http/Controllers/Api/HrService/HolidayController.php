@@ -35,12 +35,12 @@ class HolidayController extends HrBaseController
      */
     public function getUserAllHoliday(Request $request)
     {
-        $this->validate($request, [
+        /*$this->validate($request, [
             'emp_no' => 'required',
-        ]);
+        ]);*/
 
         $companyId = session('companyId');
-        $emp_no = $request->get('emp_no');
+        $emp_no = $request->get('emp_no',session('empNo'));
         $result = HolidayAll::where('company_id', $companyId)->where('emp_no', $emp_no)->where('year', date('Y', time()))->first();
 
 

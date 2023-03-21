@@ -72,22 +72,14 @@ class AttendanceController extends HrBaseController
      * @Version: 1.0
      * @return array 返回类型
      */
-    public function attendanceDeatilView(Request $request)
+    public function attendanceDetailView(Request $request)
     {
-        //$userinfo = session('wechat_user_info');
-        $emp_no = session('empNo');
-        $companyid = session('companyId');
-
+        $companyId = session('companyId');
         //判断是否是查询别人的信息
-        if ($request->get('staff_no')) {
-            $userid = $request->get('staff_no');
-        } else {
-            $userid = $emp_no;
-        }
-
+        $empNo = $request->get('staff_no',session('empNo'));
         $data = [
-            'userId' => $userid,
-            'companyId' => $companyid,
+            'userId' => $empNo,
+            'companyId' => $companyId,
             'staff_no' => $request->get('staff_no'),
             'selected' => $request->get('selected'),
             'toymd' => $request->get('toymd'),
@@ -96,7 +88,31 @@ class AttendanceController extends HrBaseController
     }
 
     /**
-     * 考勤排名页面
+     * 考勤汇总+详情页面
+     *  summaryDetailView
+     * @param mixed $fixed参数一的说明
+     * @Author: Hsiaowei
+     * @CreateDate: nowtime
+     * @Version: 1.0
+     * @return array 返回类型
+     */
+    public function summaryDetailView(Request $request)
+    {
+        //判断是否是查询别人的信息
+        $empNo = $request->get('emp_no',session('empNo'));
+        $data = [
+            'emp_no' => $empNo,
+            'selected' => $request->get('selected'),
+            'toymd' => $request->get('toymd'),
+        ];
+        return view('Details.attendanceList')->with($data);
+    }
+
+
+
+
+    /**
+     * 考勤排名页面 -部属考勤
      *  attendanceListView
      * @param mixed $fixed参数一的说明
      * @Author: Lyn.zou <lyn.zou@areschina.com>
@@ -106,7 +122,6 @@ class AttendanceController extends HrBaseController
      */
     public function attendanceListView(Request $request)
     {
-        //$userinfo = session('wechat_user_info');
         $emp_no = session('empNo');
         $companyid = session('companyId');
         $data = [

@@ -1,7 +1,8 @@
 @extends('Layout.WebApp_Layout')
 @section('css')
     <link href="{{ asset('/css/month.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('/css/details.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('/css/listDetails.css') }}" rel="stylesheet" type="text/css"/>
+{{--    <link href="{{ asset('/css/details.css') }}" rel="stylesheet" type="text/css"/>--}}
 @endsection
 
 @section('content')
@@ -20,9 +21,8 @@
                 <div class="input_group" @click="choose_years" readonly="readonly"></div>
             </div>
         </div>
-
             <div class="tab_card"></div>
-            <mt-navbar v-model="selected" style="background-color: #ffffff">
+            <mt-navbar v-model="selected">
                 <mt-tab-item  id="year"  >
                 <span>
                     <i :class="iconList[0]"></i>
@@ -44,7 +44,7 @@
             </mt-navbar>
 
             <!-- tab-container -->
-            <mt-tab-container v-model="selected" style="background-color: #ffffff">
+            <mt-tab-container v-model="selected">
                 <mt-tab-container-item id="year" >
                     <div class="tab_message_attendance">
                         <div v-for="(detail,index) in yearList">

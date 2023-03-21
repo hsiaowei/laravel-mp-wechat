@@ -128,6 +128,7 @@
                 toymd: '本月',
                 now_ymd: '',
                 list_url: '#',
+                url_pre: '/attendance/view',
                 staffAttend: '#',
                 leave_head_img: '{{ asset("/images/avatar.jpg") }}',
                 popupVisible: false,
@@ -224,11 +225,11 @@
                         if (to_month.toString().length < 2) {
                             to_month = '0' + to_month;
                         }
-                        this.list_url = "{{URL('/attendance/view')}}" + url_name + "?yeartype=" + yeartype;
+                        this.list_url = this.url_pre + url_name + "?yeartype=" + yeartype;
                     } else if (choice_time == '本年') {
                         var _month = '';//本月默认为空
                         var _quarter = '';//本季度，默认为空
-                        this.list_url = "{{URL('/attendance/view')}}" + url_name + "?yeartype=" + yeartype;
+                        this.list_url = this.url_pre + url_name + "?yeartype=" + yeartype;
                     } else {
                         var _month = '';//本月默认为空
                         if (to_month >= 1 && to_month <= 3) {
@@ -240,7 +241,7 @@
                         } else {
                             var to_quarter = 4;
                         }
-                        this.list_url = "{{URL('/attendance/view')}}" + url_name + "?yeartype=" + yeartype;
+                        this.list_url = this.url_pre + url_name + "?yeartype=" + yeartype;
                     }
 
 
@@ -251,8 +252,7 @@
                     axios.get("/api/attendance/ranking-list", {
                         params: {
                             yeartype: yeartype,
-                            quarter: to_quarter,
-                            emp_no: userID
+                            quarter: to_quarter
                         }
                     }).then(function (res) {
                         that.overtime_list = res.data.overRank;
@@ -263,7 +263,8 @@
                 },
                 staff_click: function (val, staff_no) {
                     var _ymd = this.now_ymd;
-                    this.staffAttend = '/attendance/view/detail?selected=' + val + "&staff_no=" + staff_no + "&toymd=" + _ymd;
+                    //this.staffAttend = '/attendance/view/detail?selected=' + val + "&staff_no=" + staff_no + "&toymd=" + _ymd;
+                    this.staffAttend = '/attendance/view/summaryDetail?selected=' + val + "&emp_no=" + staff_no + "&toymd=" + _ymd;
                 }
             }
         })
