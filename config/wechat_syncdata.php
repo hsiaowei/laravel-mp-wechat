@@ -32,7 +32,9 @@ return [
             'emp_arg',
             'emp_bank',
             'emp_credentials',
-            'emp_career']
+            'emp_career',
+            'leader_flag'//是否主管，by Hsiaowei 2023-04-10
+        ]
         , 'uk' => ['emp_no'],//default company_id
     ],
     'wx_personal_calendar_page' => [
@@ -112,7 +114,8 @@ return [
         'cols' => [
             'emp_no',
             'year',
-            'holiday',
+            'holiday',// 可休假调整 add used栏位如下，by Hsiaowei 2023-04-10
+            // {"year":{"title":"年假","surplus":"0小时","used":"0小时","list":["当年时数:0小时","递延时数:0小时","已休时数:0小时"]},"exchange":{...}}
         ],
         'uk' => ['year', 'emp_no'],
     ],

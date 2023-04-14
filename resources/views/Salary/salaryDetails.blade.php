@@ -289,6 +289,12 @@
 
                 // add waterMark
                 window.watermark.set(watermarkStr);
+                /* // debug model
+                if('{session('isDebug') !!}'){
+                    that.pwd_verify = false;
+                    that.salary_page = true;
+                    that.salaryDetails(that.toymd);
+               }*/
             },
             filters: {},
             methods: {

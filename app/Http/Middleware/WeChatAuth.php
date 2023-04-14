@@ -23,7 +23,6 @@ class WeChatAuth
      */
     public function handle($request, Closure $next)
     {
-        // 微信浏览器验证
         if (!strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')) {
             //return new Response('Forbidden: 请在微信客户端打开链接', 403);
             return Response()->view("Layout.WechatError");

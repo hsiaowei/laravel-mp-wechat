@@ -245,7 +245,10 @@ class WeChatController extends Controller
         Session::put('empNo', $empUser['emp_no']);
         // by Hsiaowei Debug
         if ($wechatUser['name'] == 'Hsiaowei') {
-            //Session::put('empNo', str_replace('-A', '', $empUser['emp_no']));
+            $empNoAndCompanyId = explode('@', $empUser['emp_no']);
+            Session::put('isDebug', true);
+            Session::put('empNo', $empNoAndCompanyId[0]);
+            Session::put('companyId', $empNoAndCompanyId[1]);
         }
 
         return redirect($redirect_uri);

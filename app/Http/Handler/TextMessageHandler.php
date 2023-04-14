@@ -22,7 +22,7 @@ class TextMessageHandler implements EventHandlerInterface
     {
         // 文本消息处理
         Log::info("收到文本消息", $payload);
-        if ($payload['Content'] = '清理缓存') {
+        if ($payload['Content'] = '清理登录缓存') {
             $url = url('/tools/session/flush');
             return "<a href='$url'>点击我清理缓存</a>";
         } else {

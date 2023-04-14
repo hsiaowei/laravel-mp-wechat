@@ -65,32 +65,31 @@
                         <em>调薪历史</em>
                     </a>
                 </li>
-
-
             </ul>
-            <div class="categoryDesc">主管服务</div>
-            <ul class="categoryLiIcon">
+            @if(session('wechat_user_info')['leader_flag'] == 1)
+                <div class="categoryDesc">主管服务</div>
+                <ul class="categoryLiIcon">
 
-                <li>
-                    <a href="/user/view/mydepartment">
-                        <i class="fa fa-users"></i>
-                        <em>我的部属</em>
-                    </a>
-                </li>
-                <li>
-                    <a href="/attendance/view/attendance-list">
-                        <i class="fa fa-calendar-o"></i>
-                        <em>部属考勤</em>
-                    </a>
-                </li>
-                <li>
-                    <a href="/salary/view/staff-salary">
-                        <i class="fa fa-money"></i>
-                        <em>部属薪资</em>
-                    </a>
-                </li>
-            </ul>
-
+                    <li>
+                        <a href="/user/view/mydepartment">
+                            <i class="fa fa-users"></i>
+                            <em>我的部属</em>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/attendance/view/attendance-list">
+                            <i class="fa fa-calendar-o"></i>
+                            <em>部属考勤</em>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/salary/view/staff-salary">
+                            <i class="fa fa-money"></i>
+                            <em>部属薪资</em>
+                        </a>
+                    </li>
+                </ul>
+            @endif
         </div>
     </div>
 
