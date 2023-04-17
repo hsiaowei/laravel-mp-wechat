@@ -14,7 +14,6 @@ create table wx_all_holiday
 ) comment '可休假汇总表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_all_holiday (emp_no, year);
 
 -- auto-generated definition
 create table wx_attendance_user_status
@@ -37,7 +36,7 @@ create table wx_attendance_user_status
 ) comment '用户每月考勤确认状态表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_attendance_user_status (company_id, emp_no, month_no);
+--create index Index1 on wx_attendance_user_status (company_id, emp_no, month_no);
 
 
 -- auto-generated definition
@@ -89,7 +88,6 @@ create table wx_holiday_detail
 ) comment '可休假明细表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_holiday_detail (company_id, emp_no, month_no);
 
 -- auto-generated definition
 create table wx_intermediate_table
@@ -120,12 +118,10 @@ create table wx_intermediate_table
     col18      mediumtext   null,
     col19      mediumtext   null,
     col20      mediumtext   null,
-    constraint UIndex1
-        unique (company_id, uuid)
+    constraint Index1 (company_id, uuid)
 ) comment '同步数据中间表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_intermediate_table (company_id, uuid);
 
 -- auto-generated definition
 create table wx_leader_permission_list
@@ -145,7 +141,6 @@ create table wx_leader_permission_list
 ) comment '主管权限表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_leader_permission_list (company_id, emp_no, lead_no);
 
 -- auto-generated definition
 create table wx_personal_calendar_page
@@ -172,7 +167,6 @@ create table wx_personal_calendar_page
 ) comment '员工日历表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_personal_calendar_page (company_id, emp_no, month_no);
 
 -- auto-generated definition
 create table wx_personal_information_page
@@ -205,7 +199,6 @@ create table wx_personal_information_page
 ) comment '员工信息表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_personal_information_page (company_id, emp_no);
 
 -- auto-generated definition
 create table wx_personal_pwd
@@ -224,7 +217,6 @@ create table wx_personal_pwd
 ) comment '员工密码表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_personal_pwd (company_id, emp_no);
 
 -- auto-generated definition
 create table wx_personal_salary_page
@@ -255,7 +247,6 @@ create table wx_personal_salary_page
 ) comment '员工薪资表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_personal_salary_page (company_id, emp_no, month_no, emp_pay_type);
 
 -- auto-generated definition
 create table wx_personal_salary_pwd
@@ -270,7 +261,6 @@ create table wx_personal_salary_pwd
 ) comment '员工薪资密码表' engine = MyISAM
     collate = utf8mb4_general_ci
     charset = utf8mb4;
-create index Index1 on wx_personal_salary_pwd (company_id, emp_no);
 
 -- auto-generated definition
 create table wx_personal_salaryp
