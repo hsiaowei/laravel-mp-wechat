@@ -30,6 +30,10 @@ class TextMessageHandler implements EventHandlerInterface
                 $url = url('attendance/view/attendance-check');
                 return "<a href='$url'>考勤确认</a>";
                 break;
+            case '通知':
+                $url = url('notice/view/all');
+                return "<a href='$url'>通知</a>";
+                break;
             default :
                 //return "收到文本消息内容为：".$payload['Content'];
         }

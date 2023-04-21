@@ -134,6 +134,11 @@ class WeChatController extends Controller
                 "sub_button" => [
                     [
                         "type" => "view",
+                        "name" => "通知公告",
+                        "url" => env('APP_URL') . "/notice/view/all"
+                    ],
+                    [
+                        "type" => "view",
                         "name" => "个人信息",
                         "url" => env('APP_URL') . "/user/view/userinfo"
                     ],
