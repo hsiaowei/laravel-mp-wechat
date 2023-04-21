@@ -21,12 +21,17 @@ class TextMessageHandler implements EventHandlerInterface
     public function handle($payload = [])
     {
         // 文本消息处理
-        Log::info("收到文本消息", $payload);
-        if ($payload['Content'] = '清理登录缓存') {
-            $url = url('/tools/session/flush');
-            return "<a href='$url'>点击我清理缓存</a>";
-        } else {
-            //return "收到文本消息内容为：".$payload['Content'];
+        switch ($payload['Content']) {
+            case '清理登录缓存':
+                $url = url('/tools/session/flush');
+                return "<a href='$url'>点击我清理缓存</a>";
+                break;
+            case '考勤':
+                $url = url('attendance/view/attendance-check');
+                return "<a href='$url'>考勤确认</a>";
+                break;
+            default :
+                //return "收到文本消息内容为：".$payload['Content'];
         }
     }
 

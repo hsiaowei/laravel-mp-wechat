@@ -11,6 +11,7 @@ use App\Models\Hr\SalaryPwd;
 use App\Models\Hr\User;
 use App\Models\Hr\YearSalary;
 use Illuminate\Http\Request;
+use Log;
 
 class SalaryController extends HrBaseController
 {
@@ -40,13 +41,11 @@ class SalaryController extends HrBaseController
     public function modifyNewSalaryPwd(Request $request)
     {
         $this->validate($request, [
-            'emp_no' => 'required',
             'newpwd' => 'required',
             'oldpwd' => 'required',
         ]);
-
         $companyId = session('companyId');
-        $emp_no = $request->get('emp_no');
+        $emp_no = session('empNo');
         $newPwd = $request->get('newpwd');
 
         if ($newPwd == $request->get('oldpwd')) {
@@ -55,7 +54,6 @@ class SalaryController extends HrBaseController
             return $this->success(4, '新密码长度不能低于6位');
         }
         $oldPwd = $this->encryptString($request->get('oldpwd'));
-
         //判断老密码是否正确
         $result = $this->salaryOldPwd->getUserPwdInfo($companyId, $emp_no, $oldPwd);
 
@@ -96,7 +94,7 @@ class SalaryController extends HrBaseController
         $companyId = session('companyId');
         $bank = $request->get('bank');
         $newPwd = $request->get('newpwd');
-        $emp_no = session('empNo');;
+        $emp_no = session('empNo');
 
         $userRes = $this->user->getUserInfo($companyId, $emp_no);
         $cardList = json_decode($userRes->emp_bank);

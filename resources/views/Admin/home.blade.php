@@ -82,12 +82,12 @@
                             <em>部属考勤</em>
                         </a>
                     </li>
-                    <li>
+<!--                    <li>
                         <a href="/salary/view/staff-salary">
                             <i class="fa fa-money"></i>
                             <em>部属薪资</em>
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
             @endif
         </div>

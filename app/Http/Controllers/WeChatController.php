@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Log;
 
+
 class WeChatController extends Controller
 {
     /**
@@ -193,6 +194,73 @@ class WeChatController extends Controller
                 'time' => '2023/03/02 08:30~2023/03/02 17:30'
             ],
         ]);*/
+    }
+
+
+    /**
+     * 处理考勤消息
+     *
+     * @param Request $request [
+     *
+     * 标题：考勤异常通知
+     * 详细内容
+     *     {{first.DATA}} --不放关键信息
+     *     姓名：{{keyword1.DATA}}
+     *     时间：{{keyword2.DATA}}
+     *     类型：{{keyword3.DATA}}
+     *     状态：{{keyword4.DATA}}
+     *     {{remark.DATA}}  --不放关键信息
+     *
+     *  {    "companyid": 22,
+     *      "empno": "cmh2107039@22",
+     *      "first": "张三您好，您于2023/03/02存在一笔旷工类型的考勤异常",
+     *      "keyword1": "张三",
+     *      "keyword2": "2023/03/02 08:30 ~ 17: 30",
+     *      "keyword3": "旷工",
+     *      "keyword4": "未刷卡",
+     *      "remark": "请尽快处理，谢谢!"
+     * }
+     * @return string
+     */
+    public function attendanceMessage(Request $request)
+    {
+        $params = json_decode($request->getContent(), JSON_UNESCAPED_UNICODE);
+        Log::info("接受考勤异常模板消息>>>". json_encode($params));
+        $companyId = $params['companyid'];
+        $empNo = $params['empno'];
+        if (empty($companyId) || empty($empNo)) {
+            Log::info("发送考勤异常模板消息失败未获取到公司别或工号！");
+            return;
+        }
+        $user = User::where('company_id', '=', $companyId)->where('emp_no', '=', $empNo)->first();
+        if (empty($user) || empty($empNo)) {
+            Log::info("发送考勤异常模板消息失败未获取到公司别工号指定员工！");
+            return;
+        }
+        if (empty($user['openid'])) {
+            Log::info("发送考勤异常模板消息失败指定员工未绑定服务号！>>>", $user);
+            return;
+        }
+        $options = config('wechat.official_account.default');
+        $app = Factory::officialAccount($options);
+
+        $send = [
+            'touser' => $user['openid'],
+            'template_id' => 'g7CaN7AJGFX4L_-3R-CUaHeUmjNwgU7_vhphjX5NmaM',
+            'url' => env('APP_URL') . '/user/view/home',
+            'scene' => 1000,
+            'data' => [
+                'first' => $params['first'],
+                'keyword1' => $params['keyword1'],
+                'keyword2' => $params['keyword2'],
+                'keyword3' => $params['keyword3'],
+                'keyword4' => $params['keyword4'],
+                'remark' => $params['remark'],
+            ],
+        ];
+        $app->template_message->send($send);
+        Log::info("发送考勤异常模板消息成功！>>>", $send);
+        return "success";
     }
 
     /**

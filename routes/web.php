@@ -21,8 +21,17 @@ Route::group(['prefix' => "wechat"], function () {
 
     Route::any('/', 'WeChatController@serve');
     Route::any('/menu', 'WeChatController@menu');
-    Route::any('/message', 'WeChatController@templateMessage');
     Route::any('/callback', 'WeChatController@callback');
+
+
+    // 发送消息
+    Route::group(['prefix' => "message" ], function () {
+        // 测试消息
+        Route::any('/message', 'WeChatController@templateMessage');
+
+        // 模考勤消息
+        Route::any('/attendance', 'WeChatController@attendanceMessage');
+    });
 });
 
 Route::group(['prefix' => "tools"], function () {
@@ -141,6 +150,20 @@ Route::group(['prefix' => "holiday", 'middleware' => ['cut.database', 'wechat.au
     });
 
 });
+
+//公告
+Route::group(['prefix' => "notice"/*, 'middleware' => ['cut.database', 'wechat.auth']*/], function () {
+    //页面
+    Route::group(['prefix' => "view", 'middleware' => []], function () {
+        //公告列表
+        Route::get('all', 'HrService\NoticeController@noticeAllView');
+
+    });
+
+});
+
+
+
 
 
 

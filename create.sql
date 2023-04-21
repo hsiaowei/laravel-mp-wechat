@@ -361,6 +361,25 @@ END
 DELIMITER ;
 
 
+--
+-- 通知公告表 `wx_notice`
+--
+create table wx_notice
+(
+    id         int auto_increment
+        primary key,
+    company_id int                                not null,
+    title      varchar(64)                        not null comment '标题',
+    type       varchar(10)                        null comment '类型',
+    status     varchar(10)                        null comment '状态',
+    content    text                               null comment '内容',
+    uuid       varchar(45)                        null,
+    created_at datetime default CURRENT_TIMESTAMP null,
+    updated_at datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP
+) comment '微信服务号公告表' engine = MyISAM
+                             collate = utf8mb4_general_ci
+                             charset = utf8mb4;
+
 
 -- update DDL
 --alter table wx_personal_information_page add openid varchar(50) null comment '微信openid';
