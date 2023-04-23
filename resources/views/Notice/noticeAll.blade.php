@@ -28,6 +28,7 @@
                         <div class="notice_desc">
                             {!! $item['content'] !!}
                         </div>
+                        <div class="notice_time">{{$item['created_at']}}</div>
                     </el-collapse-item>
                     @endforeach
                 </el-collapse>
